@@ -91,7 +91,7 @@ public class DSKH_sql {
             ps.setString(2, TenDN);
             ps.setString(3, MK);
             ps.setString(4, EMAIL);
-            ps.setInt(5, SDT);      
+            ps.setInt(5, SDT);        
             ps.setString(6, DIACHI);
             ps.setInt(7, TTHAI);
             ps.setString(8, khachHangId);

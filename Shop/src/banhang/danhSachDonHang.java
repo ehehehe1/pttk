@@ -282,7 +282,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
             }
             JOptionPane.showMessageDialog(null, "ĐƠN HÀNG ĐÃ ĐƯỢC CẬP NHẬT");
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
-            dsDhSql.getDHValue(jTable1, ""); 
+            dsDhSql.getDHValue(jTable1, "");   
         } else {
             JOptionPane.showMessageDialog(null, "HÃY CHỌN ĐƠN HÀNG MUỐN CẬP NHẬT");
         }

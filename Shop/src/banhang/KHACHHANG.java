@@ -29,7 +29,7 @@ public class KHACHHANG {
         this.SDT = SDT; 
         this.DIACHI = DIACHI;
         this.TTHAI = TTHAI;
-    }      
+    }        
 
     // Phương thức getter và setter cho các thuộc tính của khách hàng
     public String getId() {

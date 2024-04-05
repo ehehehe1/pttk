@@ -39,7 +39,7 @@ public class DSDH_sql {
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);
                 row[3] = rs.getInt(3);
-                row[4] = rs.getInt(3)==1; 
+                row[4] = rs.getInt(6)==1; 
   
                 model.insertRow(0, row);
             }
