@@ -26,10 +26,10 @@ public class KHACHHANG {
         this.TenDN = TenDN;
         this.MK = MK;
         this.Email = Email;
-        this.SDT = SDT;
+        this.SDT = SDT; 
         this.DIACHI = DIACHI;
         this.TTHAI = TTHAI;
-    }
+    }      
 
     // Phương thức getter và setter cho các thuộc tính của khách hàng
     public String getId() {

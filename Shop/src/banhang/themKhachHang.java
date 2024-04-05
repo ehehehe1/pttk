@@ -2,7 +2,7 @@ package banhang;
         
 /**
  *
- * @author huynh 
+ * @author huynh        
  */
 public class themKhachHang extends javax.swing.JDialog {
 

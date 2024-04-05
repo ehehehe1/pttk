@@ -261,14 +261,14 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             //JOptionPane.showMessageDialog(this, "Search field is empty");
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
                 "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
-            dsKhSql.getKHValue(jTable1, "");
+            dsKhSql.getKHValue(jTable1, "");     
         } else {
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
                 "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
             dsKhSql.getKHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
         }
     }//GEN-LAST:event_jLabel3MouseClicked
-
+  
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int rowCount = jTable1.getRowCount();
         int selectedIndex = jTable1.getSelectedRow();

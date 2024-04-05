@@ -34,17 +34,33 @@ public class DSDH_sql {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             Object[] row;
             while (rs.next()) {        
-                row = new Object[8];
+                row = new Object[5];  
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);
                 row[3] = rs.getInt(3);
-                row[4] = rs.getInt(3)==0; 
+                row[4] = rs.getInt(3)==1; 
   
                 model.insertRow(0, row);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    
+    public void update(String donHangID, int TTHAI) {
+        String sql = "update DONHANG set TRANGTHAI=? where MADH=?";
+
+        try {  
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, TTHAI);
+            ps.setString(2, donHangID);
+            ps.executeUpdate();                  
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+
     }
 }
