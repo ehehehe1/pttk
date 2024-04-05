@@ -38,7 +38,7 @@ public class DSKH_sql {
         String sql = "SELECT * FROM KHACHHANG WHERE MAKH = ?;";
         KHACHHANG khachHang=null;
         try {
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);  
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -91,7 +91,7 @@ public class DSKH_sql {
             ps.setString(2, TenDN);
             ps.setString(3, MK);
             ps.setString(4, EMAIL);
-            ps.setInt(5, SDT);        
+            ps.setInt(5, SDT);          
             ps.setString(6, DIACHI);
             ps.setInt(7, TTHAI);
             ps.setString(8, khachHangId);

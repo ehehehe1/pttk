@@ -1,6 +1,8 @@
 package banhang;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -13,11 +15,35 @@ import javax.swing.table.DefaultTableModel;
 public class danhSachDonHang extends javax.swing.JInternalFrame {
 
     DSDH_sql dsDhSql = new DSDH_sql();
+    DSKH_sql dsKhSql = new DSKH_sql();
     private DefaultTableModel model;
 
     public danhSachDonHang() {
         initComponents();
         tableViewDH();
+        DoubleClickExample();
+    }
+
+    public void DoubleClickExample() {
+        jTable1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    ctDonHang ctdh= new ctDonHang(danhSachDonHang.this, rootPaneCheckingEnabled);
+                    int row = jTable1.getSelectedRow();
+                    Object value1 = jTable1.getValueAt(row, 0);
+                    String Madh = (String) value1;
+                    DONHANG dhSelected=dsDhSql.getDHid(Madh);
+                    ctdh.setDHdata(dhSelected);
+                    Object value2 = jTable1.getValueAt(row, 1);
+                    String Makh = (String) value2;
+                    KHACHHANG khSelected = dsKhSql.getKHid(Makh);
+                    ctdh.setKHdata(khSelected);
+                    ctdh.setVisible(true);
+                }
+            }
+        });
+
     }
 
     private void tableViewDH() {
@@ -282,11 +308,12 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
             }
             JOptionPane.showMessageDialog(null, "ĐƠN HÀNG ĐÃ ĐƯỢC CẬP NHẬT");
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
-            dsDhSql.getDHValue(jTable1, "");   
+            dsDhSql.getDHValue(jTable1, "");
         } else {
             JOptionPane.showMessageDialog(null, "HÃY CHỌN ĐƠN HÀNG MUỐN CẬP NHẬT");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
 
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:

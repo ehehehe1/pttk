@@ -1,8 +1,8 @@
 package banhang;
         
 /**
- *
- * @author huynh          
+ * 
+ * @author huynh            
  */
 public class themKhachHang extends javax.swing.JDialog {
 
@@ -94,7 +94,7 @@ public class themKhachHang extends javax.swing.JDialog {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
-                    }
+                    } 
                 });
                 dialog.setVisible(true);
             }

@@ -4,13 +4,13 @@
  */
 package banhang;
 
-/**          
+/**           
  *
  * @author huynh                               
  */
 public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
 
-    /**
+    /**   
      * Creates new form thongKeKinhDoanh1
      */
     public thongKeKinhDoanh() {

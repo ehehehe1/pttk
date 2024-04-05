@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+ */ 
 package banhang;
  
 import java.awt.Color;
@@ -268,7 +268,7 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             dsKhSql.getKHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
         }
     }//GEN-LAST:event_jLabel3MouseClicked
-    
+     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int rowCount = jTable1.getRowCount();
         int selectedIndex = jTable1.getSelectedRow();
@@ -282,7 +282,7 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             String Makh = (String) value;
             KHACHHANG khSelected = dsKhSql.getKHid(Makh);
             sua.setEditData(khSelected);
-            sua.setVisible(true);
+            sua.setVisible(true);  
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
