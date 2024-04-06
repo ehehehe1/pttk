@@ -37,7 +37,7 @@ public class ctDonHang extends javax.swing.JDialog {
             jTextField8.setText("Chưa Duyệt!");
         }
         
-    }
+    }              
 
     /**
      * This method is called from within the constructor to initialize the form.

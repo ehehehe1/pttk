@@ -43,6 +43,7 @@ public class BanHang extends javax.swing.JFrame {
         desktopPanelControl = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 750));
 
         jPanel1.setBackground(new java.awt.Color(24, 24, 24));
 
@@ -293,7 +294,7 @@ public class BanHang extends javax.swing.JFrame {
         desktopPanelControl.setLayout(desktopPanelControlLayout);
         desktopPanelControlLayout.setHorizontalGroup(
             desktopPanelControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 989, Short.MAX_VALUE)
+            .addGap(0, 1070, Short.MAX_VALUE)
         );
         desktopPanelControlLayout.setVerticalGroup(
             desktopPanelControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,7 +360,7 @@ public class BanHang extends javax.swing.JFrame {
               
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         desktopPanelControl.removeAll();
-        danhSachKhachHang f1=new danhSachKhachHang();
+        danhSachKhachHang f1=new danhSachKhachHang();        
         desktopPanelControl.add(f1).setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
 
@@ -368,7 +369,7 @@ public class BanHang extends javax.swing.JFrame {
         thongKeKinhDoanh f2=new thongKeKinhDoanh();  
         desktopPanelControl.add(f2).setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
-        
+           
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         desktopPanelControl.removeAll();
         danhSachDonHang f3=new danhSachDonHang();

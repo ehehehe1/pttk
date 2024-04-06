@@ -45,7 +45,7 @@ public class DSDH_sql {
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }               
     }
 
     public DONHANG getDHid(String id) {

@@ -36,9 +36,9 @@ public class DSKH_sql {
      */
     public KHACHHANG getKHid(String id) {
         String sql = "SELECT * FROM KHACHHANG WHERE MAKH = ?;";
-        KHACHHANG khachHang=null;
+        KHACHHANG khachHang=null; 
         try {
-            ps = con.prepareStatement(sql);  
+            ps = con.prepareStatement(sql);            
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -76,6 +76,27 @@ public class DSKH_sql {
                 row[4] = rs.getInt(6);
                 row[5] = rs.getString(7);
                 model.insertRow(0, row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void insert(String khachHangId, String hoTen, String TenDN, String MK, String EMAIL, int SDT,String DIACHI, int TTHAI) {
+        try {
+            String sqlInsert = "INSERT INTO KHACHHANG (MAKH, HOTEN, TENDN, MATKHAU, EMAIL, SDT, DIACHI,TRANGTHAI) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement psInsert = con.prepareStatement(sqlInsert);
+            psInsert.setString(1, khachHangId);
+            psInsert.setString(2, hoTen);
+            psInsert.setString(3, TenDN);
+            psInsert.setString(4, MK);
+            psInsert.setString(5, EMAIL);
+            psInsert.setInt(6, SDT);
+            psInsert.setString(7, DIACHI);
+            psInsert.setInt(8, TTHAI);
+            int rowsAffected = psInsert.executeUpdate();
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Khách hàng mới đã được thêm vào dữ liệu");  
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
