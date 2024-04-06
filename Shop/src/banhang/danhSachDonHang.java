@@ -265,7 +265,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
         if (!selectionModel.isSelectionEmpty()) {
             // Lấy mảng chỉ mục của các dòng được chọn
             int[] selectedRows = jTable1.getSelectedRows();
-
+  
             // Lặp qua từng dòng được chọn
             for (int rowIndex : selectedRows) {
                 Object value1 = jTable1.getValueAt(rowIndex, 0);

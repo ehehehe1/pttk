@@ -36,7 +36,7 @@ public class ctDonHang extends javax.swing.JDialog {
         } else {
             jTextField8.setText("Chưa Duyệt!");
         }
-        
+           
     }              
 
     /**

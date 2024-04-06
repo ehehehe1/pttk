@@ -1,5 +1,5 @@
 package banhang;
- 
+  
 import db.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class DSKH_sql {
+public class DSKH_sql { 
 
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;

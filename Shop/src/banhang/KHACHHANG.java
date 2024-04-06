@@ -4,8 +4,8 @@
  */
 package banhang; 
 
-/** 
- *       
+/**  
+ *         
  * @author huynh 
  */                       
 public class KHACHHANG {

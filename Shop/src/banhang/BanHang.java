@@ -3,12 +3,12 @@ package banhang;
 import java.awt.Color; 
 
 /**   
- * 
+ *  
  * @author PC
  */
 public class BanHang extends javax.swing.JFrame {
 
-    /**
+    /**  
      * Creates new form BanHang
      */
     public BanHang() {
@@ -375,7 +375,7 @@ public class BanHang extends javax.swing.JFrame {
         danhSachDonHang f3=new danhSachDonHang();
         desktopPanelControl.add(f3).setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
-
+ 
     /**
      * @param args the command line arguments
      */

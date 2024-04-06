@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -45,7 +47,7 @@ public class DSDH_sql {
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
-        }               
+        }
     }
 
     public DONHANG getDHid(String id) {
@@ -72,17 +74,52 @@ public class DSDH_sql {
     }
 
     public void update(String donHangID, int TTHAI) {
-        String sql = "update DONHANG set TRANGTHAI=? where MADH=?";
+        String sql1 = "update DONHANG set TRANGTHAI=? where MADH=?";
+        String sql2 = "select * FROM CT_DONHANG where MADH=?";
+        String sql3 = "select * FROM CT_SANPHAM where MACTSP=?";
+        String sql4 = "update CT_SANPHAM set SOLUONG=? where MACTSP=?";
 
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, TTHAI);
-            ps.setString(2, donHangID);
-            ps.executeUpdate();
+            PreparedStatement ps1 = con.prepareStatement(sql1);
+            ps1.setInt(1, TTHAI);
+            ps1.setString(2, donHangID);
+            ps1.executeUpdate();
 
+            PreparedStatement ps2 = con.prepareStatement(sql2);
+            ps2.setString(1, donHangID);
+            ResultSet rs2 = ps2.executeQuery();
+            List<String> MACTSPList = new ArrayList<>();
+            List<Integer> SoLuongList = new ArrayList<>();
+            while (rs2.next()) {
+                MACTSPList.add(rs2.getString(2));
+                SoLuongList.add(rs2.getInt(4));
+            }
+
+            for (int i = 0; i < MACTSPList.size(); i++) {
+                String MACTSP = MACTSPList.get(i);
+                int SoLuong = SoLuongList.get(i);
+
+                PreparedStatement ps3 = con.prepareStatement(sql3);
+                ps3.setString(1, MACTSP);
+                ResultSet rs3 = ps3.executeQuery();
+                int soluong = 0;
+                if (rs3.next()) {
+                    soluong = rs3.getInt(5);
+                }
+
+                PreparedStatement ps4 = con.prepareStatement(sql4);
+                if (TTHAI == 1) {
+                    soluong -= SoLuong;
+                } else if (TTHAI == 0) {
+                    soluong += SoLuong;
+                }
+                ps4.setInt(1, soluong);
+                ps4.setString(2, MACTSP);
+                ps4.executeUpdate();
+            }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
+
 }

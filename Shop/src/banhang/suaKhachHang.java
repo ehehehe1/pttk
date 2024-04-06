@@ -6,7 +6,7 @@ package banhang;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
+/** 
  *
  * @author huynh
  */
@@ -18,7 +18,7 @@ public class suaKhachHang extends javax.swing.JDialog {
     public suaKhachHang(javax.swing.JInternalFrame parent, boolean modal) {
         super((java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(parent), modal);
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);  
     }
 
     /**
