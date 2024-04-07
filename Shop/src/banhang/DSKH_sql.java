@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class DSKH_sql { 
-
+public class DSKH_sql {       
+                    
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;
 

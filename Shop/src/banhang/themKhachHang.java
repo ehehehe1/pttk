@@ -6,7 +6,7 @@ package banhang;
  */
 public class themKhachHang extends javax.swing.JDialog {
 
-    /**
+    /**                          
      * Creates new form themKhachHang
      */
     public themKhachHang(javax.swing.JInternalFrame parent, boolean modal) {

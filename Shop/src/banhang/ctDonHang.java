@@ -4,21 +4,22 @@
  */
 package banhang;
 
-/**
+import javax.swing.table.DefaultTableModel;
+
+/**                   
  *
  * @author huynh
  */
 public class ctDonHang extends javax.swing.JDialog {
 
-    /**
-     * Creates new form ctDonHang
-     */
+    DSDH_sql dsdh= new DSDH_sql();
+    String MADH=null;
     public ctDonHang(javax.swing.JInternalFrame parent, boolean modal) {
         super((java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(parent), modal);
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+      
     public void setKHdata(KHACHHANG s)       
     {
         jTextField2.setText(s.getHoTen());
@@ -29,6 +30,7 @@ public class ctDonHang extends javax.swing.JDialog {
     
     public void setDHdata(DONHANG s)       
     {
+        MADH=s.getIdDH();
         jTextField6.setText(s.getNgayDH());
         jTextField7.setText(String.valueOf(s.getTTien()));
         if(s.getTTHAI()==1){
@@ -36,8 +38,12 @@ public class ctDonHang extends javax.swing.JDialog {
         } else {
             jTextField8.setText("Chưa Duyệt!");
         }
-           
-    }              
+        System.out.println(MADH);   
+        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "GIÁ"}));
+        dsdh.getCTDH(jTable1, MADH);
+    }  
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,7 +274,7 @@ public class ctDonHang extends javax.swing.JDialog {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

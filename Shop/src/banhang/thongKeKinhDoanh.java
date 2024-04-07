@@ -5,7 +5,7 @@
 package banhang;
    
 /**           
- *
+ *                          
  * @author huynh                               
  */
 public class thongKeKinhDoanh extends javax.swing.JInternalFrame {

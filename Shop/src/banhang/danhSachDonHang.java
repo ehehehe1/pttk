@@ -254,7 +254,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
             //JOptionPane.showMessageDialog(this, "Search field is empty");
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
             dsDhSql.getDHValue(jTable1, "");
-        } else {
+        } else {                          
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
             dsDhSql.getDHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
         }

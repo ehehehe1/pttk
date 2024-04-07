@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package banhang;
-
+             
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  
 public class danhSachKhachHang extends javax.swing.JInternalFrame {
 
-    DSKH_sql dsKhSql = new DSKH_sql();  
+    DSKH_sql dsKhSql = new DSKH_sql();               
     private DefaultTableModel model;
     suaKhachHang sua = new suaKhachHang(this, rootPaneCheckingEnabled);
     themKhachHang them = new themKhachHang(this, rootPaneCheckingEnabled);

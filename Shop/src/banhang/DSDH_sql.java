@@ -120,6 +120,65 @@ public class DSDH_sql {
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
+    } 
+
+    public void getCTDH(JTable table, String MADH) {
+        String sql1 = "select * FROM CT_DONHANG where MADH=?;";
+        String sql2 = "select * FROM CT_SANPHAM where MACTSP=?;";
+        String sql3 = "select * FROM SIZE where MASIZE=?;";
+        String sql4 = "select * FROM MAUSAC where MAMAU=?;";
+         
+
+        try {
+            PreparedStatement ps1 = con.prepareStatement(sql1);
+            ps1.setString(1, MADH);
+            ResultSet rs1 = ps1.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            Object[] row;
+            while (rs1.next()) {
+                row = new Object[6];
+                row[0] = rs1.getString(3);
+                
+                PreparedStatement ps2 = con.prepareStatement(sql2);
+                String MACTSP=rs1.getString(2);
+                ps2.setString(1, MACTSP);
+                ResultSet rs2 = ps2.executeQuery();
+                if(rs2.next())
+                {
+                    row[1] = rs2.getString(2);
+                }
+                
+                
+                PreparedStatement ps3 = con.prepareStatement(sql3);
+                String MASIZE=rs2.getString(4);
+                ps3.setString(1,MASIZE);
+                ResultSet rs3 = ps3.executeQuery();
+                if(rs3.next())
+                {
+                    row[2]=rs3.getString(2);
+                }
+                
+                
+                
+                PreparedStatement ps4 = con.prepareStatement(sql4);
+                String MAMAU=rs2.getString(3);
+                ps4.setString(1, MAMAU);
+                ResultSet rs4 = ps4.executeQuery();
+                if(rs4.next())
+                {
+                    row[3]=rs4.getString(2);
+                }
+
+                
+                
+                row[4] = rs1.getString(4);
+                row[5] = rs1.getString(5);
+
+                model.insertRow(0, row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
