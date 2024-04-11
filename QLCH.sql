@@ -86,7 +86,8 @@ create table DONHANG(
 	TONGTIEN	int,
 	PTTT		int,
 	NGAYDH		Datetime,
-	TRANGTHAI	int
+	TRANGTHAI	int,
+	NGAYNH		Datetime,
 )
 
 create table CT_DONHANG(
