@@ -1,40 +1,59 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
+ */
 package banhang;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
-/**
+/**         
  *
  * @author huynh
- */   
-public class danhSachDonHang extends javax.swing.JInternalFrame {
+ */
+public class danhSachHoaDon extends javax.swing.JInternalFrame {
 
-    DSDH_sql dsDhSql = new DSDH_sql();
+    DSHD_sql dsHdSql = new DSHD_sql();
     DSKH_sql dsKhSql = new DSKH_sql();
     private DefaultTableModel model;
-
-    public danhSachDonHang() {
+    /**
+     * Creates new form danhSachHoaDon
+     */
+    public danhSachHoaDon() {
         initComponents();
-        tableViewDH();
         DoubleClickExample();
+//        String[] comboBoxItems = {"Chưa Nhận Hàng", "Đã Nhận Hàng"};
+//        JComboBox<String> comboBox = new JComboBox<>(comboBoxItems);
+//        jTable1.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(comboBox));
+        tableViewHD();
     }
-  
+
+    private void tableViewHD() {
+        dsHdSql.getHDValue(jTable1, "");
+        model = (DefaultTableModel) jTable1.getModel(); //để lấy mô hình dữ liệu hiện tại của một JTable được gọi là jTable1
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.black);
+        jTable1.setBackground(Color.white);
+    }
+    
     public void DoubleClickExample() {
         jTable1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    ctDonHang ctdh = new ctDonHang(danhSachDonHang.this, rootPaneCheckingEnabled);
+                    ctHoaDon ctdh = new ctHoaDon(danhSachHoaDon.this, rootPaneCheckingEnabled);
                     int row = jTable1.getSelectedRow();
                     Object value1 = jTable1.getValueAt(row, 0);
                     String Madh = (String) value1;
-                    DONHANG dhSelected = dsDhSql.getDHid(Madh);
-                    ctdh.setDHdata(dhSelected);
+                    DONHANG dhSelected = dsHdSql.getHDid(Madh);
+                    ctdh.setHDdata(dhSelected);
                     Object value2 = jTable1.getValueAt(row, 1);
                     String Makh = (String) value2;
                     KHACHHANG khSelected = dsKhSql.getKHid(Makh);
@@ -44,15 +63,6 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
             }
         });
 
-    }
-
-    private void tableViewDH() {
-        dsDhSql.getDHValue(jTable1, "");
-        model = (DefaultTableModel) jTable1.getModel(); //để lấy mô hình dữ liệu hiện tại của một JTable được gọi là jTable1
-        jTable1.setRowHeight(30);
-        jTable1.setShowGrid(true);
-        jTable1.setGridColor(Color.black);
-        jTable1.setBackground(Color.white);
     }
 
     /**
@@ -72,12 +82,10 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setBorder(null);
-        setMaximizable(true);
         setPreferredSize(new java.awt.Dimension(1100, 700));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -93,25 +101,22 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"
+                "MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY NHẬN HÀNG"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(4).setCellEditor(null);
+        }
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -159,13 +164,6 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("LƯU");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -178,17 +176,13 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 529, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))))
+                        .addGap(67, 679, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -198,7 +192,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("DANH SÁCH ĐƠN HÀNG");
+        jLabel1.setText("DANH SÁCH HÓA ĐƠN");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -249,48 +243,23 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        if (searchField.getText().isEmpty()) {
-            //JOptionPane.showMessageDialog(this, "Search field is empty");
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
-            dsDhSql.getDHValue(jTable1, "");
-        } else {
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
-            dsDhSql.getDHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
-        }
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         ListSelectionModel selectionModel = jTable1.getSelectionModel(); 
-        if (!selectionModel.isSelectionEmpty()) {
-            // Lấy mảng chỉ mục của các dòng được chọn
-            int[] selectedRows = jTable1.getSelectedRows();
-
-            // Lặp qua từng dòng được chọn
-            for (int rowIndex : selectedRows) {
-                Object value1 = jTable1.getValueAt(rowIndex, 0);
-                String MaDH = (String) value1;
-                Object value2 = jTable1.getValueAt(rowIndex, 4);
-                Boolean booleanValue = (Boolean) value2;
-                int TTHAI = booleanValue ? 1 : 0; // Chuyển đổi giá trị Boolean thành Integer
-                dsDhSql.update(MaDH, TTHAI);
-            }
-            JOptionPane.showMessageDialog(null, "ĐƠN HÀNG ĐÃ ĐƯỢC CẬP NHẬT");
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
-            dsDhSql.getDHValue(jTable1, "");
-        } else {
-            JOptionPane.showMessageDialog(null, "HÃY CHỌN ĐƠN HÀNG MUỐN CẬP NHẬT");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldActionPerformed
+ 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        if (searchField.getText().isEmpty()) {
+            //JOptionPane.showMessageDialog(this, "Search field is empty");
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY NHẬN HÀNG"}));
+            dsHdSql.getHDValue(jTable1, "");
+        } else {
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY NHẬN HÀNG"}));
+            dsHdSql.getHDValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

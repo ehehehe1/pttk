@@ -11,8 +11,8 @@ public class BanHang extends javax.swing.JFrame {
     /**  
      * Creates new form BanHang
      */  
-    public BanHang() {
-        initComponents();  
+    public BanHang() { 
+        initComponents();       
     }
            
     @SuppressWarnings("unchecked")
@@ -351,7 +351,9 @@ public class BanHang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-
+        desktopPanelControl.removeAll();
+        danhSachHoaDon f1=new danhSachHoaDon();        
+        desktopPanelControl.add(f1).setVisible(true);   
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -363,13 +365,13 @@ public class BanHang extends javax.swing.JFrame {
         danhSachKhachHang f1=new danhSachKhachHang();        
         desktopPanelControl.add(f1).setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
-
+        
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         desktopPanelControl.removeAll();
         thongKeKinhDoanh f2=new thongKeKinhDoanh();  
         desktopPanelControl.add(f2).setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
-                           
+                            
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         desktopPanelControl.removeAll();
         danhSachDonHang f3=new danhSachDonHang(); 

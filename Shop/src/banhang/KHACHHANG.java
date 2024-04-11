@@ -1,12 +1,12 @@
-/*
+/* 
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package banhang; 
-
-/**  
+  
+/**   
  *          
- * @author huynh    
+ * @author huynh                  
  */                                             
 public class KHACHHANG {
 
@@ -36,7 +36,7 @@ public class KHACHHANG {
         return id;
     }
     public void setId(String id) {
-        this.id = id; 
+        this.id = id;  
     }
 
     public String getHoTen() {
