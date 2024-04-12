@@ -11,7 +11,7 @@ public class BanHang extends javax.swing.JFrame {
     /**  
      * Creates new form BanHang
      */  
-    public BanHang() { 
+    public BanHang() {         
         initComponents();       
     }
            
@@ -365,7 +365,7 @@ public class BanHang extends javax.swing.JFrame {
         danhSachKhachHang f1=new danhSachKhachHang();        
         desktopPanelControl.add(f1).setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
-            
+              
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         desktopPanelControl.removeAll();
         thongKeKinhDoanh f2=new thongKeKinhDoanh();  
@@ -374,7 +374,7 @@ public class BanHang extends javax.swing.JFrame {
                             
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         desktopPanelControl.removeAll();
-        danhSachDonHang f3=new danhSachDonHang(); 
+        danhSachDonHang f3=new danhSachDonHang();    
         desktopPanelControl.add(f3).setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
            

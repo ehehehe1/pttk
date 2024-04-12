@@ -21,7 +21,7 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
 
     DSHD_sql dsHdSql = new DSHD_sql();
     DSKH_sql dsKhSql = new DSKH_sql();
-    private DefaultTableModel model;      
+    private DefaultTableModel model;                 
     /**
      * Creates new form danhSachHoaDon
      */
@@ -248,7 +248,7 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchFieldActionPerformed
  
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        if (searchField.getText().isEmpty()) {
+        if (searchField.getText().isEmpty()) {   
             //JOptionPane.showMessageDialog(this, "Search field is empty");
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY NHẬN HÀNG"}));
             dsHdSql.getHDValue(jTable1, "");

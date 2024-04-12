@@ -81,7 +81,7 @@ public class DSHD_sql {
         String sql2 = "select * FROM CT_SANPHAM where MACTSP=?;";
         String sql3 = "select * FROM SIZE where MASIZE=?;";
         String sql4 = "select * FROM MAUSAC where MAMAU=?;";
-                
+                              
 
         try {
             PreparedStatement ps1 = con.prepareStatement(sql1);
