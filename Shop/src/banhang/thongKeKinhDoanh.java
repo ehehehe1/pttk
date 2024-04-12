@@ -4,17 +4,32 @@
  */
 package banhang; 
            
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
 /**           
  *                              
  * @author huynh                               
  */
 public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
 
+    DSTK_sql dsTkSql = new DSTK_sql();
     /**                    
      * Creates new form thongKeKinhDoanh1
      */
+    private DefaultTableModel model;
     public thongKeKinhDoanh() {
         initComponents();
+        tableViewTK();
+    }  
+    
+    private void tableViewTK() {
+        dsTkSql.getSPValue(jTable1,jTextField1, "");
+        model = (DefaultTableModel) jTable1.getModel(); //để lấy mô hình dữ liệu hiện tại của một JTable được gọi là jTable1
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.black);   
+        jTable1.setBackground(Color.white);
     }
 
     /**
@@ -37,6 +52,7 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setBorder(null);
         setMaximizable(true);
@@ -106,11 +122,11 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "THỜI GIAN", "SỐ LƯỢNG", "DOANH THU"
+                "#", "TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "SỐ LƯỢNG", "DOANH THU"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -122,19 +138,28 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("TỔNG");
 
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField1.setBorder(null);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jTextField1)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -158,7 +183,7 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -212,5 +237,6 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

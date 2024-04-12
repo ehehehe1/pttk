@@ -359,13 +359,13 @@ public class BanHang extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
-              
+                
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         desktopPanelControl.removeAll();
         danhSachKhachHang f1=new danhSachKhachHang();        
         desktopPanelControl.add(f1).setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
-        
+            
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         desktopPanelControl.removeAll();
         thongKeKinhDoanh f2=new thongKeKinhDoanh();  

@@ -21,7 +21,7 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
 
     DSHD_sql dsHdSql = new DSHD_sql();
     DSKH_sql dsKhSql = new DSKH_sql();
-    private DefaultTableModel model;
+    private DefaultTableModel model;      
     /**
      * Creates new form danhSachHoaDon
      */

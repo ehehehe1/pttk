@@ -6,11 +6,11 @@ package banhang;
   
 /**   
  *          
- * @author huynh                  
- */                                             
+ * @author huynh                   
+ */                                               
 public class KHACHHANG {
 
-    private String id;
+    private String id;    
     private String hoTen;
     private String TenDN;
     private String MK;

@@ -39,13 +39,13 @@ public class DSDH_sql {
             Object[] row;
             while (rs.next()) {
                 row = new Object[5];
-                row[0] = rs.getString(1);
+                row[0] = rs.getString(1);    
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);
                 row[3] = rs.getInt(3);
                 row[4] = rs.getInt(6) == 1;
 
-                model.insertRow(0, row);
+                model.insertRow(0, row);   
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
