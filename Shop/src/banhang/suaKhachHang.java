@@ -219,11 +219,11 @@ public class suaKhachHang extends javax.swing.JDialog {
             return false;
         }
         if (jTextField6.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Student mother name is missing");
+            JOptionPane.showMessageDialog(this, "Mời nhập số điện thoại");
             return false;
         }
         if (jTextField6.getText().length() > 11) {
-            JOptionPane.showMessageDialog(this, "Phone number is too long");
+            JOptionPane.showMessageDialog(this, "Số điện thoại quá dài");
             return false;
         }
         if (jTextField7.getText().isEmpty()) {
