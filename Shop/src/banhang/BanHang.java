@@ -11,7 +11,7 @@ public class BanHang extends javax.swing.JFrame {
     /**  
      * Creates new form BanHang
      */  
-    public BanHang() {         
+    public BanHang() {             
         initComponents();       
     }
            
@@ -378,7 +378,7 @@ public class BanHang extends javax.swing.JFrame {
         desktopPanelControl.add(f3).setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
            
-    /**
+    /**  
      * @param args the command line arguments
      */
     public static void main(String args[]) {

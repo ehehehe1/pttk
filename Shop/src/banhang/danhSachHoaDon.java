@@ -114,13 +114,10 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
         });
         jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(4).setCellEditor(null);
-        }
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setText("TÌM KIẾM");
 
         searchField.setBackground(new java.awt.Color(217, 217, 217));
@@ -248,7 +245,7 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchFieldActionPerformed
  
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        if (searchField.getText().isEmpty()) {   
+        if (searchField.getText().isEmpty()) {         
             //JOptionPane.showMessageDialog(this, "Search field is empty");
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY NHẬN HÀNG"}));
             dsHdSql.getHDValue(jTable1, "");

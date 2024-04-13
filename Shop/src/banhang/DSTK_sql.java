@@ -43,7 +43,7 @@ public class DSTK_sql {
                 PreparedStatement ps1 = con.prepareStatement(sql1);
                 ResultSet rs1 = ps1.executeQuery();
                 //model.insertRow(0, row);
-                int soluong = 0;
+                int soluong = 0;       
                 int doanhthu = 0;
                 while (rs1.next()) {
                     String maspHienTai = rs1.getString(7);

@@ -9,7 +9,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *                     
+ *                           
  * @author huynh
  */   
 public class danhSachDonHang extends javax.swing.JInternalFrame {
@@ -115,7 +115,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setText("TÌM KIẾM");
 
         searchField.setBackground(new java.awt.Color(217, 217, 217));

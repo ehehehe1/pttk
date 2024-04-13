@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
  
 /**                                 
  *
- * @author huynh                     
+ * @author huynh                            
  */
 public class ctDonHang extends javax.swing.JDialog {
 

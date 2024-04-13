@@ -44,7 +44,7 @@ public class DSDH_sql {
                 row[2] = rs.getString(5);
                 row[3] = rs.getInt(3);
                 row[4] = rs.getInt(6) == 1;
- 
+        
                 model.insertRow(0, row);   
             }
         } catch (SQLException ex) {

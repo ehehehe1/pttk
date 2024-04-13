@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package banhang; 
+package banhang;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-                                                 
-/**                 
+
+/**
  *
  * @author huynh
  */
@@ -18,7 +19,7 @@ public class suaKhachHang extends javax.swing.JDialog {
     public suaKhachHang(javax.swing.JInternalFrame parent, boolean modal) {
         super((java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(parent), modal);
         initComponents();
-        this.setLocationRelativeTo(null);  
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -190,13 +191,54 @@ public class suaKhachHang extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    public boolean isEmptyKH() {
+        if (jTextField1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mời nhập mã khách hàng");
+            return false;
+        }
+        if (jTextField2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mời nhập tên khách hàng");
+            return false;
+        }
+        if (jTextField3.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mời nhập tên đăng nhập");
+            return false;
+        }
+
+        if (jTextField4.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mời nhập mật khẩu");
+            return false;
+        }
+
+        if (jTextField5.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mời nhập Email");
+            return false;
+        }
+        if (!jTextField5.getText().matches("^.+@.+\\..+$")) {
+            JOptionPane.showMessageDialog(this, "Email sai cú pháp");
+            return false;
+        }
+        if (jTextField6.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Student mother name is missing");
+            return false;
+        }
+        if (jTextField6.getText().length() > 11) {
+            JOptionPane.showMessageDialog(this, "Phone number is too long");
+            return false;
+        }
+        if (jTextField7.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mời nhập địa chỉ");
+            return false;
+        }
+        return true;
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String khachHangId = jTextField1.getText();
         String hoTen = jTextField2.getText();
         String TenDN = jTextField3.getText();
         String MK = jTextField4.getText();
         String EMAIL = jTextField5.getText();
-        int SDT = Integer.parseInt(jTextField6.getText());
+        String SDT = jTextField6.getText();
         String DIACHI = jTextField7.getText();
         int TTHAI = -1;
         Object selectedItem = jComboBox1.getSelectedItem();
@@ -206,8 +248,21 @@ public class suaKhachHang extends javax.swing.JDialog {
             TTHAI = 0;
         }
         DSKH_sql sua = new DSKH_sql();
-        sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
-        firePropertyChange("dataUpdated", false, true);
+        if (isEmptyKH()) {
+            if (!sua.isEmailExists(EMAIL)) {
+                if (!sua.isPhoneExists(SDT)) {
+                    sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
+                    firePropertyChange("dataUpdated", false, true);
+                    //this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Số điện thoại đã tồn tại!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Email đã tồn tại");
+            }
+        }
+//        sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
+//        firePropertyChange("dataUpdated", false, true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void setEditData(KHACHHANG s) {

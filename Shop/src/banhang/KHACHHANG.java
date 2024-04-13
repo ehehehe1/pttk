@@ -10,17 +10,17 @@ package banhang;
  */                                               
 public class KHACHHANG {
 
-    private String id;                  
+    private String id;                    
     private String hoTen;
     private String TenDN;
     private String MK;
     private String Email;
-    private int SDT;
+    private String SDT;
     private String DIACHI;
     private int TTHAI;
 
     // Các thuộc tính khác của khách hàng
-    public KHACHHANG(String id, String hoTen, String TenDN, String MK, String Email, int SDT, String DIACHI, int TTHAI) {
+    public KHACHHANG(String id, String hoTen, String TenDN, String MK, String Email, String SDT, String DIACHI, int TTHAI) {
         this.id = id;
         this.hoTen = hoTen;
         this.TenDN = TenDN;
@@ -67,12 +67,12 @@ public class KHACHHANG {
         this.Email = Email;
     }
 
-    public int getSDT() {
+    public String getSDT() {
         return SDT;
     }
-    public void setSDT(int SDT) {
+    public void setSDT(String SDT) {
         this.SDT = SDT;
-    }
+    }    
 
     public String getDIACHI() {
         return DIACHI;
