@@ -19,7 +19,7 @@ create table KHACHHANG(
 	TENDN nvarchar(255) NOT NULL,
 	MATKHAU nvarchar(255) NOT NULL,
 	EMAIL varchar(255) NOT NULL,
-	SDT int NOT NULL,
+	SDT varchar(20) NOT NULL,
 	DIACHI nvarchar(255) NOT NULL,
 	TRANGTHAI int NOT NULL
 )
