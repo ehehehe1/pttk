@@ -7,7 +7,7 @@ package banhang;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *                            
+ *                              
  * @author huynh
  */
 public class ctHoaDon extends javax.swing.JDialog {

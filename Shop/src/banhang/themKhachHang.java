@@ -218,6 +218,18 @@ public class themKhachHang extends javax.swing.JDialog {
         if (jTextField6.getText().length() > 11) {
             JOptionPane.showMessageDialog(this, "Số điện thoại quá dài");
             return false;
+        } 
+        String input = jTextField6.getText();
+        boolean containsOnlyDigits = true;
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                containsOnlyDigits = false;
+                break;
+            }
+        }
+        if (!containsOnlyDigits) {
+            JOptionPane.showMessageDialog(this, "Chỉ được nhập số");
+            return false;
         }
         if (jTextField7.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập địa chỉ");
@@ -254,7 +266,7 @@ public class themKhachHang extends javax.swing.JDialog {
 
         if (isEmptyKH()) {
             if (!them.isIdExist(khachHangId)) {
-                if (!them.isEmailExists(EMAIL)) {  
+                if (!them.isEmailExists(EMAIL)) {
                     if (!them.isPhoneExists(SDT)) {
 
                         them.insert(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);

@@ -226,6 +226,18 @@ public class suaKhachHang extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Số điện thoại quá dài");
             return false;
         }
+        String input = jTextField6.getText();
+        boolean containsOnlyDigits = true;
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                containsOnlyDigits = false;
+                break;
+            }
+        }
+        if (!containsOnlyDigits) {
+            JOptionPane.showMessageDialog(this, "Chỉ được nhập số");
+            return false;
+        }
         if (jTextField7.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập địa chỉ");
             return false;
@@ -249,17 +261,9 @@ public class suaKhachHang extends javax.swing.JDialog {
         }
         DSKH_sql sua = new DSKH_sql();
         if (isEmptyKH()) {
-            if (!sua.isEmailExists(EMAIL)) {
-                if (!sua.isPhoneExists(SDT)) {
                     sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
                     firePropertyChange("dataUpdated", false, true);
-                    //this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Số điện thoại đã tồn tại!");
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Email đã tồn tại");
-            }
+                    //this.dispose();     
         }
 //        sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
 //        firePropertyChange("dataUpdated", false, true);
