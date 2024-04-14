@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 /**  
@@ -20,6 +21,9 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
 
     public danhSachDonHang() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null); 
         tableViewDH();
         DoubleClickExample();
     }

@@ -19,7 +19,7 @@ public class DSKH_sql {
 
     /*           
     //get table max row
-    public int getMax() {  
+    public int getMax() {    
         int id = 0;
         Statement st;
         try {

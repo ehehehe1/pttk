@@ -218,7 +218,7 @@ public class themKhachHang extends javax.swing.JDialog {
         if (jTextField6.getText().length() > 11) {
             JOptionPane.showMessageDialog(this, "Số điện thoại quá dài");
             return false;
-        } 
+        }   
         String input = jTextField6.getText();
         boolean containsOnlyDigits = true;
         for (char c : input.toCharArray()) {

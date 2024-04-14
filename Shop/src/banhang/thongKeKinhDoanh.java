@@ -5,13 +5,14 @@
 package banhang;
 
 import java.awt.Color;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 /**      
- *  
+ *   
  * @author huynh
  */
 public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
@@ -24,6 +25,9 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
 
     public thongKeKinhDoanh() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null);
         tableViewTK();
     }
 

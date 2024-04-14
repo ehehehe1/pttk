@@ -349,7 +349,7 @@ public class BanHang extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+  
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         desktopPanelControl.removeAll();
         danhSachHoaDon f1=new danhSachHoaDon();        

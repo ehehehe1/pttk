@@ -7,7 +7,7 @@ package banhang;
 import javax.swing.table.DefaultTableModel;
  
 /**                                 
- *  
+ *    
  * @author huynh                            
  */
 public class ctDonHang extends javax.swing.JDialog {

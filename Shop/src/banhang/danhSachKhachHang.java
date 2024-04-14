@@ -8,10 +8,11 @@ import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;                     
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
  
 public class danhSachKhachHang extends javax.swing.JInternalFrame {
-  
+   
     DSKH_sql dsKhSql = new DSKH_sql();               
     private DefaultTableModel model;
     suaKhachHang sua = new suaKhachHang(this, rootPaneCheckingEnabled);
@@ -19,6 +20,9 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
 
     public danhSachKhachHang() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null); 
         tableViewKH();
         upKH();
     }

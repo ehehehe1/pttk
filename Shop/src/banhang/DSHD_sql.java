@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package banhang; 
- 
+   
 import db.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

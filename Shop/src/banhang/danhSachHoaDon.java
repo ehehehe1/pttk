@@ -11,6 +11,7 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 /**           
@@ -27,11 +28,14 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
      */
     public danhSachHoaDon() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null); 
         DoubleClickExample();
 //        String[] comboBoxItems = {"Chưa Nhận Hàng", "Đã Nhận Hàng"};
 //        JComboBox<String> comboBox = new JComboBox<>(comboBoxItems);
 //        jTable1.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(comboBox));
-        tableViewHD();
+        tableViewHD(); 
     }
 
     private void tableViewHD() {

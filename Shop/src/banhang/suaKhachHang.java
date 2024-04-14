@@ -263,7 +263,7 @@ public class suaKhachHang extends javax.swing.JDialog {
         if (isEmptyKH()) {
                     sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
                     firePropertyChange("dataUpdated", false, true);
-                    //this.dispose();     
+                    //this.dispose();       
         }
 //        sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
 //        firePropertyChange("dataUpdated", false, true);
