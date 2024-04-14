@@ -9,7 +9,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
-/**  
+/**       
  *                           
  * @author huynh
  */   
@@ -23,7 +23,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
-        ui.setNorthPane(null); 
+        ui.setNorthPane(null);     
         tableViewDH();
         DoubleClickExample();
     }

@@ -27,7 +27,7 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
-        ui.setNorthPane(null);
+        ui.setNorthPane(null);         
         tableViewTK();
     }
 

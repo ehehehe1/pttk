@@ -5,7 +5,7 @@
 package banhang; 
   
 /**   
- *              
+ *               
  * @author huynh                   
  */                                               
 public class KHACHHANG {
@@ -14,11 +14,11 @@ public class KHACHHANG {
     private String hoTen;
     private String TenDN;
     private String MK;
-    private String Email;
+    private String Email;  
     private String SDT;
-    private String DIACHI;
-    private int TTHAI;
-
+    private String DIACHI;    
+    private int TTHAI; 
+ 
     // Các thuộc tính khác của khách hàng
     public KHACHHANG(String id, String hoTen, String TenDN, String MK, String Email, String SDT, String DIACHI, int TTHAI) {
         this.id = id;

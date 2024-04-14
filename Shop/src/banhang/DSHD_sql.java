@@ -12,14 +12,14 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 /**
- * 
+ *    
  * @author huynh
  */
 public class DSHD_sql {
@@ -51,7 +51,7 @@ public class DSHD_sql {
     }
 
     public DONHANG getHDid(String id) {
-        String sql = "SELECT * FROM DONHANG WHERE MADH = ?;";
+        String sql = "SELECT * FROM DONHANG WHERE MADH = ?;";     
         DONHANG donhang = null;
         try {
             ps = con.prepareStatement(sql);

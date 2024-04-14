@@ -95,6 +95,11 @@ public class BanHang extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BanHang/icons/Polygon.png"))); // NOI18N
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -363,7 +368,7 @@ public class BanHang extends javax.swing.JFrame {
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         desktopPanelControl.removeAll();
         danhSachKhachHang f1=new danhSachKhachHang();        
-        desktopPanelControl.add(f1).setVisible(true);
+        desktopPanelControl.add(f1).setVisible(true);       
     }//GEN-LAST:event_jLabel10MouseClicked
               
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -377,6 +382,12 @@ public class BanHang extends javax.swing.JFrame {
         danhSachDonHang f3=new danhSachDonHang();    
         desktopPanelControl.add(f3).setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        desktopPanelControl.removeAll();
+        homePage f4=new homePage();    
+        desktopPanelControl.add(f4).setVisible(true); 
+    }//GEN-LAST:event_jLabel7MouseClicked
            
     /**  
      * @param args the command line arguments

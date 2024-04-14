@@ -7,7 +7,7 @@ package banhang;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *                                
+ *                                    
  * @author huynh
  */
 public class ctHoaDon extends javax.swing.JDialog {
@@ -334,7 +334,7 @@ public class ctHoaDon extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed

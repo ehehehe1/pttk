@@ -19,7 +19,7 @@ public class DSKH_sql {
 
     /*           
     //get table max row
-    public int getMax() {    
+    public int getMax() {     
         int id = 0;
         Statement st;
         try {
@@ -86,7 +86,7 @@ public class DSKH_sql {
     public boolean isEmailExists(String email) {
         try {
             ps = con.prepareStatement("select * FROM KHACHHANG WHERE EMAIL=?");
-            ps.setString(1, email);
+            ps.setString(1, email);      
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return true;
@@ -95,7 +95,7 @@ public class DSKH_sql {
             Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }
+    }  
 
     //check customer phone address is already exists
     public boolean isPhoneExists(String phone) {
