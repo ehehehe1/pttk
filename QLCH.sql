@@ -1,4 +1,4 @@
-﻿--create database QLCH1;
+create database QLCH1;
 use QLCH1;
 
 create table CHUCNANG(
@@ -7,10 +7,20 @@ create table CHUCNANG(
 	TRANGTHAI int NOT NULL
 )
 
-create table CT_QUYEN(
+create table NHOMQUYEN(
 	MAQ varchar(10) primary key,
-	MACN varchar(10) foreign key references CHUCNANG(MACN),
-	HANHDONG nvarchar(255) NOT NULL
+	TENQUYEN varchar(50),
+	TRANGTHAI int
+)
+
+create table CT_QUYEN(
+	MAQ varchar(10),
+	MACN varchar(10),
+	HANHDONG nvarchar(255) 
+	primary key (MAQ, MACN),
+	foreign key (MAQ) references NHOMQUYEN(MAQ),
+	foreign key (MACN) references CHUCNANG(MACN)
+
 )
 
 create table KHACHHANG(
@@ -43,7 +53,6 @@ create table LOAISP(
 create table SANPHAM(
 	MASP	varchar(10) primary key,
 	TENSP	nvarchar(255) NOT NULL,
-	HINHANH varchar(255) NOT NULL,
 	MALOAI	varchar(10) foreign key references LOAISP(MALOAI),
 	GIAVON	int NOT NULL,
 	GIABAN	int NOT NULL,
@@ -87,7 +96,7 @@ create table DONHANG(
 	PTTT		int,
 	NGAYDH		Datetime,
 	TRANGTHAI	int,
-	NGAYNH		Datetime,
+	--NGAYNH		Datetime,
 )
 
 create table CT_DONHANG(
@@ -125,6 +134,7 @@ create table GIOHANG(
 	MAKH	varchar(10),
 	MACTSP	varchar(20),
 	SOLUONG	int,
+	GIABAN int,
 	TRANGTHAI	int
 	primary key (MAKH, MACTSP)
 	foreign key (MAKH) references KHACHHANG(MAKH),
@@ -152,16 +162,33 @@ insert into CHUCNANG(MACN, TENCN, TRANGTHAI) values
 ('donhang', 'Quản lý đơn hàng', 0),
 ('giohang', 'Quản lý giỏ hàng', 0);
 
+insert into NHOMQUYEN(MAQ, TENQUYEN, TRANGTHAI) values
+(1, 'Quản lý kho', 1),
+(2, 'Nhân viên bán hàng', 1),
+(3, 'Khách hàng', 1),
+(4, 'admin', 1);
+
+
 insert into CT_QUYEN(MAQ, MACN, HANHDONG) values
-(1, 'khachhang', 'taomoi'), (2, 'khachhang', 'xoa'), (3, 'khachhang', 'capnhat'), (4, 'khachhang', 'hienthi'), 
-(5, 'nhacungcap', 'taomoi'), (6, 'nhacungcap', 'xoa'), (7, 'nhacungcap', 'capnhat'), (8, 'nhacungcap', 'hienthi'), 
-(9, 'nhanvien', 'taomoi'), (10, 'nhanvien', 'xoa'), (11, 'nhanvien', 'capnhat'), (12, 'nhanvien', 'hienthi'), 
-(13, 'nhaphang', 'taomoi'), (14, 'nhaphang', 'xoa'), (15, 'nhaphang', 'capnhat'), (16, 'nhaphang', 'hienthi'), 
-(17, 'nhomquyen', 'taomoi'), (18, 'nhomquyen', 'xoa'), (19, 'nhomquyen', 'capnhat'), (20, 'nhomquyen', 'hienthi'), 
-(21, 'sanpham', 'taomoi'), (22, 'sanpham', 'xoa'), (23, 'sanpham', 'capnhat'), (24, 'sanpham', 'hienthi'), 
-(25, 'thongke', 'taomoi'), (26, 'thongke', 'xoa'), (27, 'thongke', 'capnhat'), (28, 'thongke', 'hienthi'), 
-(29, 'donhang', 'taomoi'), (30, 'donhang', 'xoa'), (31, 'donhang', 'duyet'), (32, 'donhang', 'hienthi'), 
-(33, 'giohang', 'them'), (34, 'giohang', 'xoa'), (35, 'giohang', 'capnhat'), (36, 'giohang', 'hienthi');
+(1, 'nhaphang', 'taomoi'), (1, 'nhaphang', 'xoa'), (1, 'nhaphang', 'capnhat'), (1, 'nhaphang', 'hienthi'), 
+(1, 'sanpham', 'taomoi'), (1, 'sanpham', 'xoa'), (1, 'sanpham', 'capnhat'), (1, 'sanpham', 'hienthi'), 
+(1, 'nhacungcap', 'taomoi'), (1, 'nhacungcap', 'xoa'), (1, 'nhacungcap', 'capnhat'), (1, 'nhacungcap', 'hienthi'), 
+(1, 'thuoctinh', 'taomoi'), (1, 'thuoctinh', 'xoa'), (1, 'thuoctinh', 'capnhat'), (1, 'thuoctinh', 'hienthi'), 
+(1, 'thongke', 'taomoi'), (1, 'thongke', 'xoa'), (1, 'thongke', 'capnhat'), (1, 'thongke', 'hienthi'),
+
+(2, 'khachhang', 'taomoi'), (2, 'khachhang', 'xoa'), (2, 'khachhang', 'capnhat'), (2, 'khachhang', 'hienthi'), 
+(2, 'donhang', 'xoa'), (2, 'donhang', 'duyet'), (2, 'donhang', 'hienthi'), 
+(2, 'thongke', 'taomoi'), (2, 'thongke', 'xoa'), (2, 'thongke', 'capnhat'), (2, 'thongke', 'hienthi'), 
+(2, 'sanpham', 'hienthi'), (2, 'thuoctinh', 'hienthi'), 
+
+(3, 'khachhang', 'taomoi'), (3, 'khachhang', 'capnhat'), (3, 'khachhang', 'hienthi'),
+(3, 'donhang', 'taomoi'), (3, 'donhang', 'xoa'), (3, 'donhang', 'duyet'), (3, 'donhang', 'hienthi'), 
+(3, 'giohang', 'them'), (3, 'giohang', 'xoa'), (3, 'giohang', 'capnhat'), (3, 'giohang', 'hienthi'),
+(3, 'sanpham', 'hienthi'), (3, 'thuoctinh', 'hienthi'), 
+
+(4, 'nhanvien', 'taomoi'), (4, 'nhanvien', 'xoa'), (4, 'nhanvien', 'capnhat'), (4, 'nhanvien', 'hienthi'), 
+(4, 'nhomquyen', 'taomoi'), (4, 'nhomquyen', 'xoa'), (4, 'nhomquyen', 'capnhat'), (4, 'nhomquyen', 'hienthi');
+
 
 insert into MAUSAC(MAMAU, TENMAU, TRANGTHAI) values
 ('01', 'Đỏ', 1), ('02', 'Đen', 1), ('03', 'Trắng', 1), ('04', 'Cam', 1), ('05', 'Vàng', 1), ('12', 'Tím', 1), 
@@ -173,12 +200,15 @@ insert into SIZE(MASIZE, TENSIZE, TRANGTHAI) values
 insert into LOAISP(MALOAI, TENLOAI, TRANGTHAI) values
 ('01', 'Đầm', 1), ('02', 'Áo', 1), ('03', 'Quần', 1), ('04', 'Chân váy', 1), ('05', 'Đồ bộ', 1), ('06', 'Áo dài', 1);
 
-insert into SANPHAM(MASP, TENSP, HINHANH, MALOAI, GIAVON, GIABAN, TRANGTHAI) values
-('00477', 'Đầm tay phồng cổ trụ', '', '01', 200000, 389000, 1), 
-('00520', 'Đầm tay ngắn bèo viền ren', '', '01', 200000, 349000, 1), 
-('00461', 'Đầm tay ngắn giả túi thanh lịch', '', '01', 200000, 359000, 1), 
-('00472', 'Đầm tay ngắn cổ chữ U', '', '01', 200000, 349000, 1), 
-('00465', 'Đầm 2 dây nơ', '', '01', 100000, 289000, 1);
+insert into SANPHAM(MASP, TENSP, MALOAI, GIAVON, GIABAN, TRANGTHAI) values
+('00477', 'Đầm tay phồng cổ trụ', '01', 200000, 389000, 1), 
+('00520', 'Đầm tay ngắn bèo viền ren', '01', 200000, 349000, 1), 
+('00461', 'Đầm tay ngắn giả túi thanh lịch', '01', 200000, 359000, 1), 
+('00472', 'Đầm tay ngắn cổ chữ U', '01', 200000, 349000, 1), 
+('00465', 'Đầm 2 dây nơ', '01', 100000, 289000, 1),
+('00733', 'Áo thun ngắn tay MESIYOU', '02', 100000, 279000, 1),
+('00039', 'Quần tây trơn xẻ tà bên sợi', '03', 200000, 329000, 1), 
+('00147', 'Chân váy ngắn xếp ly xòe', '04', 200000, 249000, 1); 
 --('VDU00448', 'Đầm tay ngắn phối ren hoa kết đá', '', '01', 200000, 389000, 1), 
 --('ATU00733', 'Áo thun ngắn tay MESIYOU', '', '02', 100000, 279000, 1), 
 --('TAT00065', 'Áo thun ngắn tay YOU&ME', '', '02', 100000, 200000, 1), 
@@ -226,7 +256,15 @@ insert into CT_SANPHAM(MACTSP, MASP, MAMAU, MASIZE, SOLUONG, TRANGTHAI) values
 ('004650101', '00465', '01', '01', 20, 1),
 ('004650102', '00465', '01', '02', 20, 1),
 ('004650201', '00465', '02', '01', 20, 1),
-('004650202', '00465', '02', '02', 20, 1);
+('004650202', '00465', '02', '02', 20, 1),
+('007330201', '00733', '02', '01', 20, 1),
+('007330301', '00733', '03', '01', 20, 1),
+('000390201', '00039', '02', '01', 20, 1),
+('000390501', '00039', '05', '01', 20, 1),
+('001470101', '00147', '01', '01', 20, 1),
+('001470102', '00147', '01', '02', 20, 1),
+('001470201', '00147', '02', '01', 20, 1),
+('001470202', '00147', '02', '02', 20, 1);
 
 
 
