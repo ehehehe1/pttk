@@ -23,20 +23,26 @@ create table CT_QUYEN(
 
 )
 
+create table TAIKHOAN (
+	TENDN		varchar(50) primary key,
+	MATKHAU		varchar(50),
+	MAQ			varchar(10) foreign key references NHOMQUYEN(MAQ),
+	TRANGTHAI	int
+)
+
 create table KHACHHANG(
 	MAKH varchar(10) primary key,
 	HOTEN nvarchar(255),
-	TENDN nvarchar(255) NOT NULL,
-	MATKHAU nvarchar(255) NOT NULL,
-	EMAIL varchar(255) NOT NULL,
-	SDT varchar(20) NOT NULL,
-	DIACHI nvarchar(255) NOT NULL,
-	TRANGTHAI int NOT NULL
+	TENDN varchar(50) foreign key references TAIKHOAN(TENDN),
+	EMAIL varchar(255),
+	SDT varchar(20),
+	DIACHI nvarchar(255),
+	TRANGTHAI int 
 )
 
 create table NVIEN(
 	MANV	varchar(10) primary key,
-	TENDN	nvarchar(255) NOT NULL,
+	TENDN varchar(50) foreign key references TAIKHOAN(TENDN),
 	MATKHAU varchar(255),
 	DIACHI	nvarchar(255),
 	SDT		varchar(255),
@@ -56,6 +62,7 @@ create table SANPHAM(
 	MALOAI	varchar(10) foreign key references LOAISP(MALOAI),
 	GIAVON	int NOT NULL,
 	GIABAN	int NOT NULL,
+	SOLUONG int,
 	TRANGTHAI int NOT NULL
 )
 
