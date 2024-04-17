@@ -9,9 +9,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
-/**       
+/**                  
  *                           
- * @author huynh
+ * @author huynh  
  */   
 public class danhSachDonHang extends javax.swing.JInternalFrame {
 

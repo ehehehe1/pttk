@@ -7,7 +7,7 @@ package banhang;
 /**   
  *               
  * @author huynh                   
- */                                               
+ */                                                            
 public class KHACHHANG {
 
     private String id;                    

@@ -5,7 +5,7 @@
 package banhang; 
    
 import db.MyConnection;
-import java.sql.Connection;
+import java.sql.Connection;  
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,12 +22,12 @@ import java.util.Date;
  *    
  * @author huynh
  */
-public class DSHD_sql {
+public class DSHD_sql {  
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;
 
     public void getHDValue(JTable table, String searchValue) {
-        String sql = "SELECT * FROM DONHANG WHERE concat(MADH,MAKH,TONGTIEN,NGAYDH) LIKE ? AND TRANGTHAI=?;";
+        String sql = "SELECT * FROM DONHANG WHERE concat(MADH,MAKH,TONGTIEN) LIKE ? AND TRANGTHAI=?;";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, "%" + searchValue + "%");
@@ -44,7 +44,7 @@ public class DSHD_sql {
                 row[4] = rs.getString(7);
 
                 model.insertRow(0, row);
-            }
+            } 
         } catch (SQLException ex) {
             Logger.getLogger(DSHD_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -128,6 +128,31 @@ public class DSHD_sql {
                 row[4] = rs1.getString(4);
                 row[5] = rs1.getString(5);
 
+                model.insertRow(0, row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DSHD_sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    public void getHDValueDate(JTable table, String DateStart, String DateEnd)
+    {
+        String sql = "SELECT * FROM DONHANG WHERE CONVERT(date, NGAYNH) BETWEEN ? AND ? AND TRANGTHAI=1;";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, DateStart);
+            ps.setString(2, DateEnd);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            Object[] row;
+            while (rs.next()) {
+                row = new Object[5];
+                row[0] = rs.getString(1);           
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(5);
+                row[3] = rs.getInt(3);
+                row[4] = rs.getString(7);    
                 model.insertRow(0, row);
             }
         } catch (SQLException ex) {

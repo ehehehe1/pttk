@@ -7,7 +7,7 @@ package banhang;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *                                    
+ *                                               
  * @author huynh
  */
 public class ctHoaDon extends javax.swing.JDialog {
@@ -191,7 +191,7 @@ public class ctHoaDon extends javax.swing.JDialog {
         jLabel7.setText("TỔNG TIỀN:");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel8.setText("NGÀY NHẬN HÀNG:");
+        jLabel8.setText("NGÀY XỬ LÍ:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
