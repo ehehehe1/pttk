@@ -8,8 +8,8 @@ import java.awt.Color;
  */
 public class BanHang extends javax.swing.JFrame {
 
-    /**  
-     * Creates new form BanHang
+    /**   
+     * Creates new form BanHang 
      */  
     public BanHang() {             
         initComponents();       

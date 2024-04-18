@@ -6,7 +6,7 @@ package banhang;
     
 import db.MyConnection;
 import java.sql.Connection;
-import java.sql.PreparedStatement;             
+import java.sql.PreparedStatement;              
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,7 +42,7 @@ public class DSDH_sql {
                 row[0] = rs.getString(1);                 
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);      
-                row[3] = rs.getInt(3);
+                row[3] = rs.getInt(3);  
                 row[4] = rs.getInt(6) == 1;
         
                 model.insertRow(0, row);   

@@ -148,7 +148,7 @@ public class DSKH_sql {
                 psInsert.setInt(8, TTHAI);
                 int rowsAffected = psInsert.executeUpdate();
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Khách hàng mới đã được thêm vào dữ liệu");     
+                    JOptionPane.showMessageDialog(null, "Khách hàng mới đã được thêm vào dữ liệu");        
                 }
             }
 
