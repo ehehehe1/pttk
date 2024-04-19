@@ -8,8 +8,8 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
                 
 /**
  *
- * @author huynh
- */
+ * @author huynh 
+ */ 
 public class homePage extends javax.swing.JInternalFrame {
 
     HOMEPAGE_sql hp = new HOMEPAGE_sql();

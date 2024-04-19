@@ -7,11 +7,11 @@ package banhang;
 /**     
  *     
  * @author huynh       
- */                    
+ */                     
 public class DONHANG {     
       
     private String idDH; 
-    private String idKH;   
+    private String idKH;    
     private int TTien;   
     private int PTTT;
     private String ngayDH; 

@@ -12,7 +12,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 /**                      
- *   
+ *     
  * @author huynh
  */
 public class thongKeKinhDoanh extends javax.swing.JInternalFrame {

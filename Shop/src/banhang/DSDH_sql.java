@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package banhang;
-    
+     
 import db.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;              
@@ -36,6 +36,7 @@ public class DSDH_sql {
             ps.setString(1, "%" + searchValue + "%");
             ResultSet rs = ps.executeQuery();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
             Object[] row;
             while (rs.next()) {
                 row = new Object[5];

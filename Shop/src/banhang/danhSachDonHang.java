@@ -257,11 +257,13 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if (searchField.getText().isEmpty()) {
             //JOptionPane.showMessageDialog(this, "Search field is empty");
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
+            //jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
             dsDhSql.getDHValue(jTable1, "");
+            jTable1.repaint();
         } else {
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
+            //jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"}));
             dsDhSql.getDHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
+            jTable1.repaint();
         }
     }//GEN-LAST:event_jLabel3MouseClicked
 
@@ -280,7 +282,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
                 int TTHAI = booleanValue ? 1 : 0; // Chuyển đổi giá trị Boolean thành Integer
                 dsDhSql.update(MaDH, TTHAI);
             }
-            JOptionPane.showMessageDialog(null, "ĐƠN HÀNG ĐÃ ĐƯỢC CẬP NHẬT"); 
+            JOptionPane.showMessageDialog(null, "ĐƠN HÀNG ĐÃ ĐƯỢC CẬP NHẬT");  
             jTable1.repaint();
         } else {
             JOptionPane.showMessageDialog(null, "HÃY CHỌN ĐƠN HÀNG MUỐN CẬP NHẬT");

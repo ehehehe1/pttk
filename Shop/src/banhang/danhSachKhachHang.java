@@ -5,10 +5,10 @@
 package banhang;
                          
 import java.awt.Color;           
-import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeEvent; 
 import java.beans.PropertyChangeListener;      
 import javax.swing.JOptionPane;                     
-import javax.swing.plaf.basic.BasicInternalFrameUI;          
+import javax.swing.plaf.basic.BasicInternalFrameUI;           
 import javax.swing.table.DefaultTableModel;
  
 public class danhSachKhachHang extends javax.swing.JInternalFrame {
