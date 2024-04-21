@@ -17,10 +17,9 @@ create table CT_QUYEN(
 	MAQ varchar(10),
 	MACN varchar(10),
 	HANHDONG nvarchar(50) 
-	primary key (MAQ, MACN),
+	--primary key(MAQ, MACN, HANHDONG),
+	foreign key (MACN) references CHUCNANG(MACN),
 	foreign key (MAQ) references NHOMQUYEN(MAQ),
-	foreign key (MACN) references CHUCNANG(MACN)
-
 )
 
 create table TAIKHOAN (
@@ -130,7 +129,8 @@ insert into CHUCNANG(MACN, TENCN, TRANGTHAI) values
 ('sanpham', 'Quản lý sản phẩm', 0),
 ('thongke', 'Quản lý thống kê', 0),
 ('donhang', 'Quản lý đơn hàng', 0),
-('giohang', 'Quản lý giỏ hàng', 0);
+('giohang', 'Quản lý giỏ hàng', 0),
+('thuoctinh', 'Quản lý thuộc tính', 0);
 
 insert into NHOMQUYEN(MAQ, TENQUYEN, TRANGTHAI) values
 (1, 'Quản lý kho', 1),
@@ -140,24 +140,24 @@ insert into NHOMQUYEN(MAQ, TENQUYEN, TRANGTHAI) values
 
 
 insert into CT_QUYEN(MAQ, MACN, HANHDONG) values
-(1, 'nhaphang', 'taomoi'), (1, 'nhaphang', 'xoa'), (1, 'nhaphang', 'capnhat'), (1, 'nhaphang', 'hienthi'), 
-(1, 'sanpham', 'taomoi'), (1, 'sanpham', 'xoa'), (1, 'sanpham', 'capnhat'), (1, 'sanpham', 'hienthi'), 
-(1, 'nhacungcap', 'taomoi'), (1, 'nhacungcap', 'xoa'), (1, 'nhacungcap', 'capnhat'), (1, 'nhacungcap', 'hienthi'), 
-(1, 'thuoctinh', 'taomoi'), (1, 'thuoctinh', 'xoa'), (1, 'thuoctinh', 'capnhat'), (1, 'thuoctinh', 'hienthi'), 
-(1, 'thongke', 'taomoi'), (1, 'thongke', 'xoa'), (1, 'thongke', 'capnhat'), (1, 'thongke', 'hienthi'),
-
-(2, 'khachhang', 'taomoi'), (2, 'khachhang', 'xoa'), (2, 'khachhang', 'capnhat'), (2, 'khachhang', 'hienthi'), 
-(2, 'donhang', 'xoa'), (2, 'donhang', 'duyet'), (2, 'donhang', 'hienthi'), 
-(2, 'thongke', 'taomoi'), (2, 'thongke', 'xoa'), (2, 'thongke', 'capnhat'), (2, 'thongke', 'hienthi'), 
-(2, 'sanpham', 'hienthi'), (2, 'thuoctinh', 'hienthi'), 
+(4, 'nhanvien', 'taomoi'), (4, 'nhanvien', 'xoa'), (4, 'nhanvien', 'capnhat'), (4, 'nhanvien', 'hienthi'), 
+(4, 'nhomquyen', 'taomoi'), (4, 'nhomquyen', 'xoa'), (4, 'nhomquyen', 'capnhat'), (4, 'nhomquyen', 'hienthi'),
 
 (3, 'khachhang', 'taomoi'), (3, 'khachhang', 'capnhat'), (3, 'khachhang', 'hienthi'),
 (3, 'donhang', 'taomoi'), (3, 'donhang', 'xoa'), (3, 'donhang', 'duyet'), (3, 'donhang', 'hienthi'), 
 (3, 'giohang', 'them'), (3, 'giohang', 'xoa'), (3, 'giohang', 'capnhat'), (3, 'giohang', 'hienthi'),
-(3, 'sanpham', 'hienthi'), (3, 'thuoctinh', 'hienthi'), 
+(3, 'sanpham', 'hienthi'), (3, 'thuoctinh', 'hienthi'),
 
-(4, 'nhanvien', 'taomoi'), (4, 'nhanvien', 'xoa'), (4, 'nhanvien', 'capnhat'), (4, 'nhanvien', 'hienthi'), 
-(4, 'nhomquyen', 'taomoi'), (4, 'nhomquyen', 'xoa'), (4, 'nhomquyen', 'capnhat'), (4, 'nhomquyen', 'hienthi');
+(2, 'khachhang', 'taomoi'), (2, 'khachhang', 'xoa'), (2, 'khachhang', 'capnhat'), (2, 'khachhang', 'hienthi'), 
+(2, 'donhang', 'xoa'), (2, 'donhang', 'duyet'), (2, 'donhang', 'hienthi'), 
+(2, 'thongke', 'taomoi'), (2, 'thongke', 'xoa'), (2, 'thongke', 'capnhat'), (2, 'thongke', 'hienthi'), 
+(2, 'sanpham', 'hienthi'), (2, 'thuoctinh', 'hienthi'),
+
+(1, 'thuoctinh', 'taomoi'), (1, 'thuoctinh', 'xoa'), (1, 'thuoctinh', 'capnhat'), (1, 'thuoctinh', 'hienthi'),
+(1, 'thongke', 'taomoi'), (1, 'thongke', 'xoa'), (1, 'thongke', 'capnhat'), (1, 'thongke', 'hienthi'),
+(1, 'nhacungcap', 'taomoi'), (1, 'nhacungcap', 'xoa'), (1, 'nhacungcap', 'capnhat'), (1, 'nhacungcap', 'hienthi'),
+(1, 'sanpham', 'taomoi'), (1, 'sanpham', 'xoa'), (1, 'sanpham', 'capnhat'), (1, 'sanpham', 'hienthi'),
+(1, 'nhaphang', 'taomoi'), (1, 'nhaphang', 'xoa'), (1, 'nhaphang', 'capnhat'), (1, 'nhaphang', 'hienthi');
 
 
 insert into MAUSAC(MAMAU, TENMAU, TRANGTHAI) values
