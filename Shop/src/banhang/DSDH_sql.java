@@ -65,8 +65,8 @@ public class DSDH_sql {
             if (rs.next()) {
                 String donHangId = rs.getString(1);
                 String khachHangId = rs.getString(2);
-                int TTien = rs.getInt(3);
-                int PTTT = rs.getInt(4);
+                int TTien = rs.getInt(3); 
+                String PTTT = rs.getString(4);
                 String NGAYDH = rs.getString(5);
                 int TTHAI = rs.getInt(6);
                 donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI);
@@ -120,7 +120,7 @@ public class DSDH_sql {
                 int soluong = 0;
                 if (rs3.next()) {
                     soluong = rs3.getInt(5);
-                }
+                }   
 
                 PreparedStatement ps4 = con.prepareStatement(sql4);
                 if (TTHAI == 2) {

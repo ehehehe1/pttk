@@ -277,9 +277,9 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
             for (int rowIndex : selectedRows) {
                 Object value1 = jTable1.getValueAt(rowIndex, 0);
                 String MaDH = (String) value1;
-                Object value2 = jTable1.getValueAt(rowIndex, 4);
+                Object value2 = jTable1.getValueAt(rowIndex, 5);  
                 Boolean booleanValue = (Boolean) value2;
-                int TTHAI = booleanValue ? 1 : 0; // Chuyển đổi giá trị Boolean thành Integer
+                int TTHAI = booleanValue ? 2 : 1; // Chuyển đổi giá trị Boolean thành Integer
                 dsDhSql.update(MaDH, TTHAI);
             }
             JOptionPane.showMessageDialog(null, "ĐƠN HÀNG ĐÃ ĐƯỢC CẬP NHẬT");  

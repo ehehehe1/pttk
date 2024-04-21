@@ -22,7 +22,7 @@ public class ctDonHang extends javax.swing.JDialog {
       
     public void setKHdata(KHACHHANG s)         
     {
-        jTextField2.setText(s.getTenDN());     
+        jTextField2.setText(s.getTenDN());         
         jTextField3.setText(s.getDIACHI());
         jTextField4.setText(String.valueOf(s.getSDT()));
         
@@ -33,7 +33,7 @@ public class ctDonHang extends javax.swing.JDialog {
         MADH=s.getIdDH();
         jTextField6.setText(s.getNgayDH());
         jTextField7.setText(String.valueOf(s.getTTien()));
-        if(s.getTTHAI()==1){
+        if(s.getTTHAI()==2){
             jTextField8.setText("Đã Duyệt!");
         } else {
             jTextField8.setText("Chưa Duyệt!");

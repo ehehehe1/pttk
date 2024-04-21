@@ -13,7 +13,7 @@ public class BanHang extends javax.swing.JFrame {
      */  
     public BanHang() {             
         initComponents();       
-    }      
+    }           
            
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

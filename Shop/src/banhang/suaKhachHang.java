@@ -230,7 +230,7 @@ public class suaKhachHang extends javax.swing.JDialog {
             TTHAI = 1;
         } else if ("Chưa Duyệt!".equals((String) selectedItem)) {
             TTHAI = 0;
-        }     
+        }          
         DSKH_sql sua = new DSKH_sql();
         if (isEmptyKH()) {
                     sua.update(khachHangId, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);

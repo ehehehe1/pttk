@@ -132,7 +132,7 @@ public class DSKH_sql {
 
     public void insert(String khachHangId, String TenDN, String MK, String EMAIL, int SDT, String DIACHI, int TTHAI) {
         try {
-     
+          
             String sqlCheckID = "select * FROM TAIKHOAN WHERE MATK=?";
             PreparedStatement psSelect = con.prepareStatement(sqlCheckID);
             psSelect.setString(1, khachHangId);

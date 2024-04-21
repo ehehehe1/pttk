@@ -7,7 +7,7 @@ package banhang;
 import javax.swing.table.DefaultTableModel;
  
 /**
- *                                                       
+ *                                                           
  * @author huynh
  */ 
 public class ctHoaDon extends javax.swing.JDialog {
@@ -33,7 +33,7 @@ public class ctHoaDon extends javax.swing.JDialog {
         jTextField4.setText(String.valueOf(s.getSDT()));
         
     }
-    
+     
     public void setHDdata(DONHANG s)       
     {
         MADH=s.getIdDH();

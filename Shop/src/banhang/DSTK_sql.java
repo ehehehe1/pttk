@@ -53,7 +53,7 @@ public class DSTK_sql {
                             doanhthu += rs1.getInt(4) * rs1.getInt(5);
 
                         }
-                    }
+                    }     
                 }
                 row[2] = soluong;
                 row[3] = doanhthu;

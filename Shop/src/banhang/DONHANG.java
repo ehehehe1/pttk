@@ -13,12 +13,12 @@ public class DONHANG {
     private String idDH; 
     private String idKH;    
     private int TTien;   
-    private int PTTT;
+    private String PTTT;
     private String ngayDH; 
     private int TTHAI;
 
     // Các thuộc tính khác của khách hàng
-    public DONHANG(String idDH, String idKH, int TTien, int PTTT, String ngayDH, int TTHAI) {
+    public DONHANG(String idDH, String idKH, int TTien, String PTTT, String ngayDH, int TTHAI) {
         this.idDH = idDH;
         this.idKH = idKH;
         this.TTien = TTien;
@@ -52,17 +52,17 @@ public class DONHANG {
         this.TTien = TTien;
     }
 
-    public int getPTTT() {
+    public String getPTTT() {
         return PTTT;
     }
 
-    public void setPTTT(int PTTT) {
+    public void setPTTT(String PTTT) {
         this.PTTT = PTTT;
     }
-
+ 
     public String getNgayDH() {
         return ngayDH;
-    }    
+    }       
 
     public void setNgayDH(String ngayDH) {
         this.ngayDH = ngayDH;

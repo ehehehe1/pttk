@@ -4,7 +4,7 @@
  */
 package banhang;
 
-import db.MyConnection;      
+import db.MyConnection;       
 import java.sql.Connection;
 import java.sql.PreparedStatement;                
 import java.sql.ResultSet; 
@@ -24,7 +24,7 @@ public class HOMEPAGE_sql {
     public int getKH() {
         int soluong = 0;
         try {
-            ps = con.prepareStatement("select count(*) FROM KHACHHANG");
+            ps = con.prepareStatement("select count(*) FROM TAIKHOAN WHERE MAQ=3");
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 soluong = rs.getInt(1);
@@ -53,7 +53,7 @@ public class HOMEPAGE_sql {
         int soluong = 0;
         try {
             ps = con.prepareStatement("select count(*) FROM DONHANG WHERE TRANGTHAI=?");
-            ps.setInt(1, 1);
+            ps.setInt(1, 2);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 soluong = rs.getInt(1);
@@ -62,13 +62,13 @@ public class HOMEPAGE_sql {
             Logger.getLogger(HOMEPAGE_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soluong;
-    }
+    }    
     
      public int getDT() {
         int soluong = 0;
         try {
             ps = con.prepareStatement("select * FROM DONHANG WHERE TRANGTHAI=?");
-            ps.setInt(1, 1);
+            ps.setInt(1, 2);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 soluong += rs.getInt(3);    
