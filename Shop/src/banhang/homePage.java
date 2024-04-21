@@ -6,8 +6,8 @@ package banhang;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
                 
-/**
- *
+/** 
+ *     
  * @author huynh 
  */ 
 public class homePage extends javax.swing.JInternalFrame {

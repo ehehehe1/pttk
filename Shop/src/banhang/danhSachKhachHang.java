@@ -6,7 +6,7 @@ package banhang;
                          
 import java.awt.Color;           
 import java.beans.PropertyChangeEvent; 
-import java.beans.PropertyChangeListener;      
+import java.beans.PropertyChangeListener;           
 import javax.swing.JOptionPane;                     
 import javax.swing.plaf.basic.BasicInternalFrameUI;           
 import javax.swing.table.DefaultTableModel;
@@ -184,7 +184,7 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN", "SỐ ĐIỆN THOẠI", "Đ/CHỈ"
+                "MÃ TÀI KHOẢN", "TÊN ĐĂNG NHẬP", "EMAIL", "SỐ ĐIỆN THOẠI", "Đ/CHỈ", "Trạng Thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {

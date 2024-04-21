@@ -4,7 +4,7 @@
  */
 package banhang;
 
-import db.MyConnection;
+import db.MyConnection;    
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;  
@@ -47,21 +47,20 @@ public class DSTK_sql {
                 int doanhthu = 0;
                 while (rs1.next()) {
                     String maspHienTai = rs1.getString(7);
-                    if (rs1.getInt(17) == 1) {
+                    if (rs1.getInt(17) == 2) {
                         if (rs.getString(1).equals(maspHienTai)) {
                             soluong += rs1.getInt(4);
                             doanhthu += rs1.getInt(4) * rs1.getInt(5);
 
                         }
                     }
-                    row[2] = soluong;
-                    row[3] = doanhthu;
-
                 }
-                TongTien += (Integer) row[3 ];
+                row[2] = soluong;
+                row[3] = doanhthu;
+                TongTien += (Integer) row[3];
                 //model.addRow(row);
                      model.insertRow(0, row);
-            }
+            } 
             text.setText(String.valueOf(TongTien));
         } catch (SQLException ex) {
             Logger.getLogger(DSTK_sql.class.getName()).log(Level.SEVERE, null, ex);

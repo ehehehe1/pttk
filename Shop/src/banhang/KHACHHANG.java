@@ -11,7 +11,7 @@ package banhang;
 public class KHACHHANG { 
 
     private String id;                    
-    private String hoTen;
+    //private String hoTen;
     private String TenDN;
     private String MK;
     private String Email;  
@@ -20,9 +20,9 @@ public class KHACHHANG {
     private int TTHAI; 
  
     // Các thuộc tính khác của khách hàng
-    public KHACHHANG(String id, String hoTen, String TenDN, String MK, String Email, String SDT, String DIACHI, int TTHAI) {
+    public KHACHHANG(String id, String TenDN, String MK, String Email, String SDT, String DIACHI, int TTHAI) {
         this.id = id;
-        this.hoTen = hoTen;
+        //this.hoTen = hoTen;
         this.TenDN = TenDN;
         this.MK = MK;
         this.Email = Email;
@@ -39,16 +39,16 @@ public class KHACHHANG {
         this.id = id;  
     }
 
-    public String getHoTen() {
-        return hoTen;
-    }
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
-    }
+//    public String getHoTen() {
+//        return hoTen;
+//    }
+//    public void setHoTen(String hoTen) {
+//        this.hoTen = hoTen;
+//    }
 
     public String getTenDN() {
         return TenDN;
-    }
+    }     
     public void setTenDN(String TenDN) {
         this.TenDN = TenDN;
     }

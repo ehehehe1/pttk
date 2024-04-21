@@ -16,17 +16,15 @@ public class DONHANG {
     private int PTTT;
     private String ngayDH; 
     private int TTHAI;
-    private String ngayNH;
 
     // Các thuộc tính khác của khách hàng
-    public DONHANG(String idDH, String idKH, int TTien, int PTTT, String ngayDH, int TTHAI,String ngayNH) {
+    public DONHANG(String idDH, String idKH, int TTien, int PTTT, String ngayDH, int TTHAI) {
         this.idDH = idDH;
         this.idKH = idKH;
         this.TTien = TTien;
         this.PTTT = PTTT; 
         this.ngayDH = ngayDH;
         this.TTHAI = TTHAI;
-        this.ngayNH = ngayNH;
     }
 
     // Phương thức getter và setter cho các thuộc tính của khách hàng
@@ -64,7 +62,7 @@ public class DONHANG {
 
     public String getNgayDH() {
         return ngayDH;
-    }
+    }    
 
     public void setNgayDH(String ngayDH) {
         this.ngayDH = ngayDH;
@@ -76,13 +74,5 @@ public class DONHANG {
 
     public void setTTHAI(int TTHAI) {
         this.TTHAI = TTHAI;
-    }
-
-    public String getNgayNH() {
-        return ngayNH;
-    }
-
-    public void setNgayNH(String ngayNH) {
-        this.ngayNH = ngayNH;
-    }
+    } 
 }

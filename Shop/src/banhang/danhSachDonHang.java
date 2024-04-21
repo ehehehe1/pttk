@@ -8,7 +8,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-
+    
 /**                  
  *                           
  * @author huynh  
@@ -91,20 +91,20 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "TÌNH TRẠNG XỬ LÝ"
+                "MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "THỜI GIAN", "GIÁ", "PT THANH TOÁN", "TÌNH TRẠNG XỬ LÝ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -19,7 +19,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 /**
- *    
+ *      
  * @author huynh
  */
 public class DSHD_sql {  
@@ -27,11 +27,11 @@ public class DSHD_sql {
     PreparedStatement ps;
 
     public void getHDValue(JTable table, String searchValue) {
-        String sql = "SELECT * FROM DONHANG WHERE concat(MADH,MAKH,TONGTIEN) LIKE ? AND TRANGTHAI=?;";
+        String sql = "SELECT * FROM DONHANG WHERE concat(MADH,MATK,TONGTIEN) LIKE ? AND TRANGTHAI=?;";
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + searchValue + "%");
-            ps.setInt(2, 1);
+            ps.setString(1, "%" + searchValue + "%");  
+            ps.setInt(2, 2);
             ResultSet rs = ps.executeQuery();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             Object[] row;
@@ -64,8 +64,7 @@ public class DSHD_sql {
                 int PTTT = rs.getInt(4);
                 String NGAYDH = rs.getString(5);
                 int TTHAI = rs.getInt(6);
-                String NGAYNH = rs.getString(7);
-                donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI, NGAYNH);
+                donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI);
 
             }
         } catch (SQLException ex) {
@@ -138,7 +137,7 @@ public class DSHD_sql {
     
     public void getHDValueDate(JTable table, String DateStart, String DateEnd)
     {
-        String sql = "SELECT * FROM DONHANG WHERE CONVERT(date, NGAYNH) BETWEEN ? AND ? AND TRANGTHAI=1;";
+        String sql = "SELECT * FROM DONHANG WHERE CONVERT(date, NGAYDH) BETWEEN ? AND ? AND TRANGTHAI=1;";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, DateStart);

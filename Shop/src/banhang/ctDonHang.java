@@ -22,7 +22,7 @@ public class ctDonHang extends javax.swing.JDialog {
       
     public void setKHdata(KHACHHANG s)         
     {
-        jTextField2.setText(s.getHoTen());
+        jTextField2.setText(s.getTenDN());     
         jTextField3.setText(s.getDIACHI());
         jTextField4.setText(String.valueOf(s.getSDT()));
         

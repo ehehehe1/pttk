@@ -30,21 +30,23 @@ public class DSDH_sql {
     PreparedStatement ps;
 
     public void getDHValue(JTable table, String searchValue) {
-        String sql = "SELECT * FROM DONHANG WHERE concat(MADH,MAKH,TONGTIEN,NGAYDH) LIKE ?;";
+        String sql = "SELECT * FROM DONHANG WHERE concat(MADH,MATK,TONGTIEN,PTTT) LIKE ? AND TRANGTHAI !=?;";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, "%" + searchValue + "%");
+            ps.setInt(2, 0);
             ResultSet rs = ps.executeQuery();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setRowCount(0);
             Object[] row;
             while (rs.next()) {
-                row = new Object[5];
+                row = new Object[6];
                 row[0] = rs.getString(1);                 
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);      
-                row[3] = rs.getInt(3);  
-                row[4] = rs.getInt(6) == 1;
+                row[3] = rs.getInt(3);
+                row[4] = rs.getString(4);  
+                row[5] = rs.getInt(6) == 2;   
         
                 model.insertRow(0, row);   
             }
@@ -67,8 +69,7 @@ public class DSDH_sql {
                 int PTTT = rs.getInt(4);
                 String NGAYDH = rs.getString(5);
                 int TTHAI = rs.getInt(6);
-                String NGAYNH = rs.getString(7); 
-                donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI, NGAYNH);
+                donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI);
 
             }
         } catch (SQLException ex) {
@@ -78,24 +79,23 @@ public class DSDH_sql {
     }
 
     public void update(String donHangID, int TTHAI) {
-        String sql1 = "update DONHANG set TRANGTHAI=?, NGAYNH=? where MADH=?";
+        String sql1 = "update DONHANG set TRANGTHAI=? where MADH=?";
         String sql2 = "select * FROM CT_DONHANG where MADH=?";
         String sql3 = "select * FROM CT_SANPHAM where MACTSP=?";
         String sql4 = "update CT_SANPHAM set SOLUONG=? where MACTSP=?";
 
         try {
-            LocalDateTime currentTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String formattedTime = currentTime.format(formatter);
+//            LocalDateTime currentTime = LocalDateTime.now();
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//            String formattedTime = currentTime.format(formatter);
             PreparedStatement ps1 = con.prepareStatement(sql1);
-            if (TTHAI == 1) {
+            if (TTHAI == 2) {
                 ps1.setInt(1, TTHAI);
-                ps1.setString(2, formattedTime);
-                ps1.setString(3, donHangID);
-            } else if (TTHAI == 0) {
+                ps1.setString(2, donHangID);
+            } else if (TTHAI == 1) {
                 ps1.setInt(1, TTHAI);
-                ps1.setNull(2, java.sql.Types.TIMESTAMP);
-                ps1.setString(3, donHangID);
+//                ps1.setNull(2, java.sql.Types.TIMESTAMP);
+                ps1.setString(2, donHangID);
             }
 
             ps1.executeUpdate();
@@ -123,9 +123,9 @@ public class DSDH_sql {
                 }
 
                 PreparedStatement ps4 = con.prepareStatement(sql4);
-                if (TTHAI == 1) {
+                if (TTHAI == 2) {
                     soluong -= SoLuong;
-                } else if (TTHAI == 0) {
+                } else if (TTHAI == 1) {
                     soluong += SoLuong;
                 }
                 ps4.setInt(1, soluong);

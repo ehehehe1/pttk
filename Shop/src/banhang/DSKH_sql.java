@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level; 
+import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +16,7 @@ public class DSKH_sql {
 
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;
-        
+
     /*           
     //get table max row
     public int getMax() {     
@@ -35,7 +35,7 @@ public class DSKH_sql {
     }
      */
     public KHACHHANG getKHid(String id) {
-        String sql = "SELECT * FROM KHACHHANG WHERE MAKH = ?;";
+        String sql = "SELECT * FROM TAIKHOAN WHERE MATK = ? AND MAQ=3;";
         KHACHHANG khachHang = null;
         try {
             ps = con.prepareStatement(sql);
@@ -43,14 +43,14 @@ public class DSKH_sql {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String khachHangId = rs.getString(1);
-                String hoTen = rs.getString(2);
-                String TenDN = rs.getString(3);
-                String MK = rs.getString(4);
+//                String hoTen = rs.getString(2);
+                String TenDN = rs.getString(2);
+                String MK = rs.getString(3);
                 String EMAIL = rs.getString(5);
-                String SDT = rs.getString(6);
-                String DIACHI = rs.getString(7);
+                String SDT = rs.getString(4);
+                String DIACHI = rs.getString(6);
                 int TTHAI = rs.getInt(8);
-                khachHang = new KHACHHANG(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
+                khachHang = new KHACHHANG(khachHangId, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
 
             }
         } catch (SQLException ex) {
@@ -60,7 +60,7 @@ public class DSKH_sql {
     }
 
     public void getKHValue(JTable table, String searchValue) {
-        String sql = "SELECT * FROM KHACHHANG WHERE concat(MAKH,HOTEN, TENDN, EMAIL, SDT, DIACHI) LIKE ?;";
+        String sql = "SELECT * FROM TAIKHOAN WHERE concat(MATK, TENDN, EMAIL, SDT, DIACHI) LIKE ?;";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, "%" + searchValue + "%");
@@ -68,40 +68,29 @@ public class DSKH_sql {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             Object[] row;
             while (rs.next()) {
-                row = new Object[8];
+                row = new Object[6];
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);
-                row[3] = rs.getString(3);
-                row[4] = rs.getInt(6);
-                row[5] = rs.getString(7);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(6);
+                if (rs.getInt(8) == 1) {
+                    row[5] = "Đã Duyệt";
+                } else {
+                    row[5] = "Chưa Duyệt";
+                }
                 model.insertRow(0, row);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //check customer email address is already exists
     public boolean isEmailExists(String email) {
         try {
-            ps = con.prepareStatement("select * FROM KHACHHANG WHERE EMAIL=?");
-            ps.setString(1, email);      
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }  
-
-    //check customer phone address is already exists
-    public boolean isPhoneExists(String phone) {
-        try {
-            ps = con.prepareStatement("select * FROM KHACHHANG WHERE SDT=?");
-            ps.setString(1, phone);
+            ps = con.prepareStatement("select * FROM TAIKHOAN WHERE EMAIL=? AND MAQ=3");
+            ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return true;
@@ -111,10 +100,25 @@ public class DSKH_sql {
         }
         return false;
     }
-      
+
+    //check customer phone address is already exists
+    public boolean isPhoneExists(int phone) {
+        try {
+            ps = con.prepareStatement("select * FROM TAIKHOAN WHERE SDT=? AND MAQ=3");
+            ps.setInt(1, phone);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
     public boolean isIdExist(String id) {
         try {
-            ps = con.prepareStatement("select * FROM KHACHHANG WHERE MAKH=?");
+            ps = con.prepareStatement("select * FROM TAIKHOAN WHERE MATK=?");
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -126,29 +130,29 @@ public class DSKH_sql {
         return false;
     }
 
-    public void insert(String khachHangId, String hoTen, String TenDN, String MK, String EMAIL, String SDT, String DIACHI, int TTHAI) {
+    public void insert(String khachHangId, String TenDN, String MK, String EMAIL, int SDT, String DIACHI, int TTHAI) {
         try {
-
-            String sqlCheckID = "select * FROM KHACHHANG WHERE MAKH=?";
+     
+            String sqlCheckID = "select * FROM TAIKHOAN WHERE MATK=?";
             PreparedStatement psSelect = con.prepareStatement(sqlCheckID);
             psSelect.setString(1, khachHangId);
             ResultSet rs = psSelect.executeQuery();
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "ID đã tồn tại, mời nhập lại");
             } else {
-                String sqlInsert = "INSERT INTO KHACHHANG (MAKH, HOTEN, TENDN, MATKHAU, EMAIL, SDT, DIACHI,TRANGTHAI) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                String sqlInsert = "INSERT INTO TAIKHOAN (MATK, TENDN, MATKHAU, EMAIL, SDT, DIACHI, MAQ, TRANGTHAI) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement psInsert = con.prepareStatement(sqlInsert);
                 psInsert.setString(1, khachHangId);
-                psInsert.setString(2, hoTen);
-                psInsert.setString(3, TenDN);
-                psInsert.setString(4, MK);
-                psInsert.setString(5, EMAIL);
-                psInsert.setString(6, SDT);
-                psInsert.setString(7, DIACHI);
+                psInsert.setString(2, TenDN);
+                psInsert.setString(3, MK);
+                psInsert.setString(4, EMAIL);
+                psInsert.setInt(5, SDT);
+                psInsert.setString(6, DIACHI);
+                psInsert.setInt(7, 3);
                 psInsert.setInt(8, TTHAI);
                 int rowsAffected = psInsert.executeUpdate();
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Khách hàng mới đã được thêm vào dữ liệu");        
+                    JOptionPane.showMessageDialog(null, "Khách hàng mới đã được thêm vào dữ liệu");
                 }
             }
 
@@ -157,19 +161,18 @@ public class DSKH_sql {
         }
     }
 
-    public void update(String khachHangId, String hoTen, String TenDN, String MK, String EMAIL, String SDT, String DIACHI, int TTHAI) {
-        String sql = "update KHACHHANG set HOTEN=?, TENDN=?, MATKHAU=?, EMAIL=?, SDT=?, DIACHI=?, TRANGTHAI=? where MAKH=?";
+    public void update(String khachHangId, String TenDN, String MK, String EMAIL, String SDT, String DIACHI, int TTHAI) {
+        String sql = "update TAIKHOAN set TENDN=?, MATKHAU=?, EMAIL=?, SDT=?, DIACHI=?, TRANGTHAI=? where MAKH=? AND MAQ=3";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, hoTen);
-            ps.setString(2, TenDN);
-            ps.setString(3, MK); 
-            ps.setString(4, EMAIL);
-            ps.setString(5, SDT);
-            ps.setString(6, DIACHI);
-            ps.setInt(7, TTHAI);
-            ps.setString(8, khachHangId);
+            ps.setString(1, TenDN);
+            ps.setString(2, MK);
+            ps.setString(3, EMAIL);
+            ps.setString(4, SDT);
+            ps.setString(5, DIACHI);
+            ps.setInt(6, TTHAI);
+            ps.setString(7, khachHangId);
 
             if (ps.executeUpdate() > 0) {
                 JOptionPane.showMessageDialog(null, "KHÁCH HÀNG ĐÃ ĐƯỢC CẬP NHẬT");
@@ -184,7 +187,7 @@ public class DSKH_sql {
         int yesOrNo = JOptionPane.showConfirmDialog(null, "Bạn có muốn xóa khách hàng này khỏi dữ liệu ?", "Xóa Khách Hàng", JOptionPane.OK_CANCEL_OPTION, 0);
         if (yesOrNo == JOptionPane.OK_OPTION) {
             try {
-                ps = con.prepareStatement("delete from KHACHHANG where MAKH=?");
+                ps = con.prepareStatement("delete from TAIKHOAN where MATK=? AND MAQ=3");
                 ps.setString(1, id);
                 if (ps.executeUpdate() > 0) {
                     JOptionPane.showMessageDialog(null, "KHÁCH HÀNG ĐÃ ĐƯỢC XÓA THÀNH CÔNG");
