@@ -1,22 +1,22 @@
-create database QLCH1;
-use QLCH1;
+create database QLCH;
+use QLCH;
 
 create table CHUCNANG(
 	MACN varchar(10) primary key,
-	TENCN nvarchar(255),
-	TRANGTHAI int NOT NULL
+	TENCN nvarchar(50),
+	TRANGTHAI smallint NOT NULL
 )
 
 create table NHOMQUYEN(
 	MAQ varchar(10) primary key,
-	TENQUYEN varchar(50),
-	TRANGTHAI int
+	TENQUYEN nvarchar(50),
+	TRANGTHAI smallint
 )
 
 create table CT_QUYEN(
 	MAQ varchar(10),
 	MACN varchar(10),
-	HANHDONG nvarchar(255) 
+	HANHDONG smallint 
 	primary key (MAQ, MACN),
 	foreign key (MAQ) references NHOMQUYEN(MAQ),
 	foreign key (MACN) references CHUCNANG(MACN)
@@ -24,58 +24,40 @@ create table CT_QUYEN(
 )
 
 create table TAIKHOAN (
-	TENDN		varchar(50) primary key,
+	MATK 		varchar(10) primary key,
+	TENDN		varchar(50),
 	MATKHAU		varchar(50),
+	SDT		int,
+	EMAIL 		varchar(50),
+	DIACHI		nvarchar(255),
 	MAQ			varchar(10) foreign key references NHOMQUYEN(MAQ),
-	TRANGTHAI	int
-)
-
-create table KHACHHANG(
-	MAKH varchar(10) primary key,
-	HOTEN nvarchar(255),
-	TENDN varchar(50) foreign key references TAIKHOAN(TENDN),
-	EMAIL varchar(255),
-	SDT varchar(20),
-	DIACHI nvarchar(255),
-	TRANGTHAI int 
-)
-
-create table NVIEN(
-	MANV	varchar(10) primary key,
-	TENDN varchar(50) foreign key references TAIKHOAN(TENDN),
-	MATKHAU varchar(255),
-	DIACHI	nvarchar(255),
-	SDT		varchar(255),
-	MAQ		varchar(10),
-	TRANGTHAI int NOT NULL
+	TRANGTHAI	smallint
 )
 
 create table LOAISP(
 	MALOAI	varchar(10) primary key,
 	TENLOAI nvarchar(255),
-	TRANGTHAI int 
+	TRANGTHAI smallint 
 )
 
 create table SANPHAM(
 	MASP	varchar(10) primary key,
 	TENSP	nvarchar(255) NOT NULL,
 	MALOAI	varchar(10) foreign key references LOAISP(MALOAI),
-	GIAVON	int NOT NULL,
-	GIABAN	int NOT NULL,
 	SOLUONG int,
-	TRANGTHAI int NOT NULL
+	TRANGTHAI smallint NOT NULL
 )
 
 create table MAUSAC(
 	MAMAU	varchar(10) primary key,
 	TENMAU	nvarchar(50),
-	TRANGTHAI	int
+	TRANGTHAI	smallint
 )
 
 create table SIZE(
 	MASIZE		varchar(10)	primary key,
 	TENSIZE		nvarchar(50),
-	TRANGTHAI	int
+	TRANGTHAI	smallint
 )
 
 create table NCC(
@@ -88,30 +70,31 @@ create table NCC(
 )
 
 create table CT_SANPHAM(
-	MACTSP varchar(20) primary key,		--	mactsp = masp + mamau + masize
+	MACTSP varchar(30) primary key,		--	mactsp = masp + mamau + masize
 	MASP varchar(10)	foreign key references SANPHAM(MASP),
 	MAMAU varchar(10)	foreign key references MAUSAC(MAMAU),
 	MASIZE varchar(10)	foreign key references SIZE(MASIZE),
-	SOLUONG int,
-	TRANGTHAI int
+	GIABAN Int
+	SOLUONG Int,
+	TRANGTHAI smallint
 )
 
 create table DONHANG(
 	MADH		varchar(10) primary key,
-	MAKH		varchar(10)	foreign key references KHACHHANG(MAKH),
-	TONGTIEN	int,
-	PTTT		int,
-	NGAYDH		Datetime,
-	TRANGTHAI	int,
-	--NGAYNH		Datetime,
+	MATK		varchar(10)	foreign key references TAIKHOAN(MATK),
+	TONGTIEN	money,
+	PTTT		nvarchar(50),
+	NGAYDH		Date,
+	TRANGTHAI	smallint,
 )
 
 create table CT_DONHANG(
 	MADH	varchar(10),
-	MACTSP	varchar(20),
+	MACTSP	varchar(30),
 	TENSP	nvarchar(255),
 	SOLUONG	int,
-	DONGIA	int,
+	DONGIA	money,
+	THANHTIEN money,
 	primary key (MADH, MACTSP),
 	foreign key (MADH) references DONHANG(MADH),
 	foreign key (MACTSP) references CT_SANPHAM(MACTSP)
