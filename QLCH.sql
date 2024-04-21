@@ -62,11 +62,11 @@ create table SIZE(
 
 create table NCC(
 	MANCC	varchar(10) primary key,
-	TENNCC	nvarchar(255),
+	TENNCC	nvarchar(50),
 	DIACHI	nvarchar(255),
 	EMAIL	varchar(255),
 	SDT		int,
-	TRANGTHAI int
+	TRANGTHAI smallint
 )
 
 create table CT_SANPHAM(
@@ -74,7 +74,7 @@ create table CT_SANPHAM(
 	MASP varchar(10)	foreign key references SANPHAM(MASP),
 	MAMAU varchar(10)	foreign key references MAUSAC(MAMAU),
 	MASIZE varchar(10)	foreign key references SIZE(MASIZE),
-	GIABAN Int
+	GIABAN Int,
 	SOLUONG Int,
 	TRANGTHAI smallint
 )
@@ -103,43 +103,24 @@ create table CT_DONHANG(
 
 create table PHIEUNHAP(
 	MAPHIEU		varchar(10) primary key,
-	THOIGIAN	Datetime,
+	NGAYTAO		Date,
 	MANCC		varchar(10)	foreign key references NCC(MANCC),		
-	MANV		varchar(10)	foreign key references NVIEN(MANV),
-	TONGTIEN	int,
-	TRANGTHAI	int,
+	MATK		varchar(10)	foreign key references TAIKHOAN(MATK),
+	TONGTIEN	money,
+	TRANGTHAI	smallint,
 )
 
 create table CT_PHIEUNHAP(
 	MAPHIEU	varchar(10),
-	MACTSP	varchar(20),
+	MACTSP	varchar(30),
 	SOLUONG	int,
-	DONGIA	int,
+	DONGIA	money,
+	THANHTIEN money,
 	primary key (MAPHIEU, MACTSP),
 	foreign key (MAPHIEU) references PHIEUNHAP(MAPHIEU),
 	foreign key (MACTSP) references CT_SANPHAM(MACTSP)
 )
 
-create table GIOHANG(
-	MAKH	varchar(10),
-	MACTSP	varchar(20),
-	SOLUONG	int,
-	GIABAN int,
-	TRANGTHAI	int
-	primary key (MAKH, MACTSP)
-	foreign key (MAKH) references KHACHHANG(MAKH),
-	foreign key (MACTSP) references CT_SANPHAM(MACTSP)
-)
-
-create table PHIEUTRA(
-	MAPHIEUTRA	varchar(10) primary key,
-	MADH		varchar(10) foreign key references DONHANG(MADH),
-	MACTSP		varchar(20) foreign key references CT_SANPHAM(MACTSP),
-	SOLUONG		int,
-	LYDO		nvarchar(255),
-	NGAYTRA		Datetime,
-	NGUOITAO	varchar(10) foreign key references NVIEN(MANV)
-)
 
 insert into CHUCNANG(MACN, TENCN, TRANGTHAI) values 
 ('khachhang', 'Quản lý khách hàng', 0),
@@ -159,7 +140,7 @@ insert into NHOMQUYEN(MAQ, TENQUYEN, TRANGTHAI) values
 (4, 'admin', 1);
 
 
-insert into CT_QUYEN(MAQ, MACN, HANHDONG) values
+/*insert into CT_QUYEN(MAQ, MACN, HANHDONG) values
 (1, 'nhaphang', 'taomoi'), (1, 'nhaphang', 'xoa'), (1, 'nhaphang', 'capnhat'), (1, 'nhaphang', 'hienthi'), 
 (1, 'sanpham', 'taomoi'), (1, 'sanpham', 'xoa'), (1, 'sanpham', 'capnhat'), (1, 'sanpham', 'hienthi'), 
 (1, 'nhacungcap', 'taomoi'), (1, 'nhacungcap', 'xoa'), (1, 'nhacungcap', 'capnhat'), (1, 'nhacungcap', 'hienthi'), 
@@ -177,7 +158,7 @@ insert into CT_QUYEN(MAQ, MACN, HANHDONG) values
 (3, 'sanpham', 'hienthi'), (3, 'thuoctinh', 'hienthi'), 
 
 (4, 'nhanvien', 'taomoi'), (4, 'nhanvien', 'xoa'), (4, 'nhanvien', 'capnhat'), (4, 'nhanvien', 'hienthi'), 
-(4, 'nhomquyen', 'taomoi'), (4, 'nhomquyen', 'xoa'), (4, 'nhomquyen', 'capnhat'), (4, 'nhomquyen', 'hienthi');
+(4, 'nhomquyen', 'taomoi'), (4, 'nhomquyen', 'xoa'), (4, 'nhomquyen', 'capnhat'), (4, 'nhomquyen', 'hienthi');*/
 
 
 insert into MAUSAC(MAMAU, TENMAU, TRANGTHAI) values
