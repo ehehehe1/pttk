@@ -48,7 +48,7 @@ public class KHACHHANG {
 
     public String getTenDN() {
         return TenDN;
-    }               
+    }                 
     public void setTenDN(String TenDN) {
         this.TenDN = TenDN;
     }

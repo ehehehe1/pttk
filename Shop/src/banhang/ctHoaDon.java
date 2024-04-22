@@ -39,9 +39,10 @@ public class ctHoaDon extends javax.swing.JDialog {
         MADH=s.getIdDH();
         jTextField1.setText(s.getIdDH());
         jTextField6.setText(s.getNgayDH());
-        jTextField7.setText(String.valueOf(s.getTTien()));          
+        jTextField7.setText(String.valueOf(s.getTTien()));  
+        jTextField8.setText(s.getPTTT());
         System.out.println(MADH);   
-        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "GIÁ"}));
+        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
         dsdh.getCTDH(jTable1, MADH);
     }  
 
@@ -70,10 +71,12 @@ public class ctHoaDon extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -188,6 +191,9 @@ public class ctHoaDon extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel7.setText("TỔNG TIỀN:");
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel8.setText("PHƯƠNG THỨC THANH TOÁN:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -197,8 +203,9 @@ public class ctHoaDon extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(345, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +216,9 @@ public class ctHoaDon extends javax.swing.JDialog {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanel4);
@@ -233,6 +242,10 @@ public class ctHoaDon extends javax.swing.JDialog {
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTextField1.setBorder(null);
 
+        jTextField8.setEditable(false);
+        jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jTextField8.setBorder(null);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -240,6 +253,7 @@ public class ctHoaDon extends javax.swing.JDialog {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField8)
                     .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                     .addComponent(jTextField7)
                     .addComponent(jTextField1))
@@ -253,7 +267,9 @@ public class ctHoaDon extends javax.swing.JDialog {
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanel5);
@@ -270,7 +286,7 @@ public class ctHoaDon extends javax.swing.JDialog {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "GIÁ"
+                "SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -301,7 +317,7 @@ public class ctHoaDon extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -379,6 +395,7 @@ public class ctHoaDon extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -395,5 +412,6 @@ public class ctHoaDon extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,7 +39,7 @@ public class ctDonHang extends javax.swing.JDialog {
             jTextField8.setText("Chưa Duyệt!");
         }
         System.out.println(MADH);   
-        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "GIÁ"}));
+        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
         dsdh.getCTDH(jTable1, MADH);
     }  
     
@@ -270,7 +270,7 @@ public class ctDonHang extends javax.swing.JDialog {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "GIÁ"
+                "SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"
             }
         ) {
             boolean[] canEdit = new boolean [] {

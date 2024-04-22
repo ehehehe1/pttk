@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date; 
 import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;               
+import javax.swing.JComboBox;                 
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;

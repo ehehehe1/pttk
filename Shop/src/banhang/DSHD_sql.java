@@ -61,7 +61,7 @@ public class DSHD_sql {
                 String donHangId = rs.getString(1);
                 String khachHangId = rs.getString(2);
                 int TTien = rs.getInt(3);
-                String PTTT = rs.getString(4);      
+                String PTTT = rs.getString(4);        
                 String NGAYDH = rs.getString(5);
                 int TTHAI = rs.getInt(6);
                 donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI);
