@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package banhang;
-     
+
 import db.MyConnection;
 import java.sql.Connection;
-import java.sql.PreparedStatement;              
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;   
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,14 +41,14 @@ public class DSDH_sql {
             Object[] row;
             while (rs.next()) {
                 row = new Object[6];
-                row[0] = rs.getString(1);                 
+                row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
-                row[2] = rs.getString(5);      
+                row[2] = rs.getString(5);
                 row[3] = rs.getInt(3);
-                row[4] = rs.getString(4);  
-                row[5] = rs.getInt(6) == 2;   
-        
-                model.insertRow(0, row);   
+                row[4] = rs.getString(4);
+                row[5] = rs.getInt(6) == 2;
+
+                model.insertRow(0, row);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,7 +65,7 @@ public class DSDH_sql {
             if (rs.next()) {
                 String donHangId = rs.getString(1);
                 String khachHangId = rs.getString(2);
-                int TTien = rs.getInt(3); 
+                int TTien = rs.getInt(3);
                 String PTTT = rs.getString(4);
                 String NGAYDH = rs.getString(5);
                 int TTHAI = rs.getInt(6);
@@ -83,7 +83,6 @@ public class DSDH_sql {
         String sql2 = "select * FROM CT_DONHANG where MADH=?";
         String sql3 = "select * FROM CT_SANPHAM where MACTSP=?";
         String sql4 = "update CT_SANPHAM set SOLUONG=? where MACTSP=?";
-
         try {
 //            LocalDateTime currentTime = LocalDateTime.now();
 //            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -120,7 +119,7 @@ public class DSDH_sql {
                 int soluong = 0;
                 if (rs3.next()) {
                     soluong = rs3.getInt(5);
-                }   
+                }
 
                 PreparedStatement ps4 = con.prepareStatement(sql4);
                 if (TTHAI == 2) {
@@ -130,7 +129,21 @@ public class DSDH_sql {
                 }
                 ps4.setInt(1, soluong);
                 ps4.setString(2, MACTSP);
-                ps4.executeUpdate();
+                if (ps4.executeUpdate() > 0) {
+                    if (TTHAI == 2) {
+                        String sql5 = "update SANPHAM set SOLUONG=SOLUONG - ? WHERE MASP=?";
+                        PreparedStatement ps5 = con.prepareStatement(sql5);
+                        ps5.setInt(1, SoLuong);
+                        ps5.setString(2, rs3.getString(2));
+                        ps5.executeUpdate();
+                    } else if (TTHAI == 1) {
+                        String sql5 = "update SANPHAM set SOLUONG=SOLUONG + ? WHERE MASP=?";
+                        PreparedStatement ps5 = con.prepareStatement(sql5);
+                        ps5.setInt(1, SoLuong);
+                        ps5.setString(2, rs3.getString(2));
+                        ps5.executeUpdate();
+                    }
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);

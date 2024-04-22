@@ -29,7 +29,7 @@ public class ctDonHang extends javax.swing.JDialog {
     }
     
     public void setDHdata(DONHANG s)       
-    {
+    {     
         MADH=s.getIdDH();
         jTextField6.setText(s.getNgayDH());
         jTextField7.setText(String.valueOf(s.getTTien()));

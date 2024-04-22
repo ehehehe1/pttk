@@ -162,7 +162,7 @@ public class DSKH_sql {
     }
 
     public void update(String khachHangId, String TenDN, String MK, String EMAIL, String SDT, String DIACHI, int TTHAI) {
-        String sql = "update TAIKHOAN set TENDN=?, MATKHAU=?, EMAIL=?, SDT=?, DIACHI=?, TRANGTHAI=? where MAKH=? AND MAQ=3";
+        String sql = "update TAIKHOAN set TENDN=?, MATKHAU=?, EMAIL=?, SDT=?, DIACHI=?, TRANGTHAI=? where MATK=? AND MAQ=3";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -171,7 +171,7 @@ public class DSKH_sql {
             ps.setString(3, EMAIL);
             ps.setString(4, SDT);
             ps.setString(5, DIACHI);
-            ps.setInt(6, TTHAI);
+            ps.setInt(6, TTHAI);    
             ps.setString(7, khachHangId);
 
             if (ps.executeUpdate() > 0) {

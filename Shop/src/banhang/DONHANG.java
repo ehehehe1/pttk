@@ -59,7 +59,7 @@ public class DONHANG {
     public void setPTTT(String PTTT) {
         this.PTTT = PTTT;
     }
- 
+      
     public String getNgayDH() {
         return ngayDH;
     }       

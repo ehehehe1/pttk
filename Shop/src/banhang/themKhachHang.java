@@ -223,7 +223,7 @@ public class themKhachHang extends javax.swing.JDialog {
         jTextField5.setText(null);
         jTextField6.setText(null);
         jTextField7.setText(null);
-    }          
+    }               
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String khachHangId = jTextField1.getText();
         String TenDN = jTextField3.getText();

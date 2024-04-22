@@ -46,14 +46,13 @@ public class DSTK_sql {
                 int soluong = 0;       
                 int doanhthu = 0;
                 while (rs1.next()) {
-                    String maspHienTai = rs1.getString(7);
-                    if (rs1.getInt(17) == 2) {
+                    String maspHienTai = rs1.getString(8);  
+                    if (rs1.getInt(19) == 2) {
                         if (rs.getString(1).equals(maspHienTai)) {
                             soluong += rs1.getInt(4);
                             doanhthu += rs1.getInt(4) * rs1.getInt(5);
-
                         }
-                    }     
+                    }      
                 }
                 row[2] = soluong;
                 row[3] = doanhthu;
