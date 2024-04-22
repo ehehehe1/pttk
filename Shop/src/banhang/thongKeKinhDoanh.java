@@ -30,7 +30,7 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
         ui.setNorthPane(null);         
         tableViewTK();
     }
-           
+             
     private void tableViewTK() {
         dsTkSql.getSPValue(jTable1, jTextField1, "");
         model = (DefaultTableModel) jTable1.getModel(); //để lấy mô hình dữ liệu hiện tại của một JTable được gọi là jTable1

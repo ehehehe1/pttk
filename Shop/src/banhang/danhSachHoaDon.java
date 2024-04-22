@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date; 
 import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;                 
+import javax.swing.JComboBox;                  
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -389,7 +389,7 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
         } else {
             formattedDateStart = outputFormat1.format(date1);
             formattedDateEnd = outputFormat2.format(date2);
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY XỬ LÍ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ"}));
             dsHdSql.getHDValueDate(jTable1, formattedDateStart, formattedDateEnd);
             if (jTable1.getModel().getRowCount() == 0) {
                     JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");

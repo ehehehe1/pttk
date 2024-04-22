@@ -31,7 +31,7 @@ public class ctDonHang extends javax.swing.JDialog {
     public void setDHdata(DONHANG s)       
     {     
         MADH=s.getIdDH();
-        jTextField6.setText(s.getNgayDH());
+        jTextField6.setText(s.getNgayDH());  
         jTextField7.setText(String.valueOf(s.getTTien()));
         if(s.getTTHAI()==2){
             jTextField8.setText("Đã Duyệt!");

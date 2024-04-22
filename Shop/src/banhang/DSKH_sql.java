@@ -169,7 +169,7 @@ public class DSKH_sql {
             ps.setString(1, TenDN);
             ps.setString(2, MK);
             ps.setString(3, EMAIL);
-            ps.setString(4, SDT);
+            ps.setString(4, SDT);  
             ps.setString(5, DIACHI);
             ps.setInt(6, TTHAI);      
             ps.setString(7, khachHangId);

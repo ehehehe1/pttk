@@ -61,7 +61,7 @@ public class DSHD_sql {
                 String donHangId = rs.getString(1);
                 String khachHangId = rs.getString(2);
                 int TTien = rs.getInt(3);
-                String PTTT = rs.getString(4);        
+                String PTTT = rs.getString(4);         
                 String NGAYDH = rs.getString(5);
                 int TTHAI = rs.getInt(6);
                 donhang = new DONHANG(donHangId, khachHangId, TTien, PTTT, NGAYDH, TTHAI);
@@ -146,12 +146,11 @@ public class DSHD_sql {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             Object[] row;
             while (rs.next()) {
-                row = new Object[5];
+                row = new Object[4];
                 row[0] = rs.getString(1);           
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);
-                row[3] = rs.getInt(3);
-                row[4] = rs.getString(7);    
+                row[3] = rs.getInt(3); 
                 model.insertRow(0, row);
             }
         } catch (SQLException ex) {

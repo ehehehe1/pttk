@@ -62,7 +62,7 @@ public class HOMEPAGE_sql {
             Logger.getLogger(HOMEPAGE_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soluong;
-    }           
+    }             
     
      public int getDT() {
         int soluong = 0;

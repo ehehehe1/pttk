@@ -77,7 +77,7 @@ public class DSDH_sql {
         }
         return donhang;
     }
-  
+    
     public void update(String donHangID, int TTHAI) {
         String sql1 = "update DONHANG set TRANGTHAI=? where MADH=?";
         String sql2 = "select * FROM CT_DONHANG where MADH=?";

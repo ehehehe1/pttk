@@ -253,7 +253,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if (searchField.getText().isEmpty()) {
             //JOptionPane.showMessageDialog(this, "Search field is empty");
@@ -277,7 +277,7 @@ public class danhSachDonHang extends javax.swing.JInternalFrame {
             for (int rowIndex : selectedRows) {
                 Object value1 = jTable1.getValueAt(rowIndex, 0);
                 String MaDH = (String) value1;
-                Object value2 = jTable1.getValueAt(rowIndex, 5);         
+                Object value2 = jTable1.getValueAt(rowIndex, 5);          
                 Boolean booleanValue = (Boolean) value2;
                 int TTHAI = booleanValue ? 2 : 1; // Chuyển đổi giá trị Boolean thành Integer
                 dsDhSql.update(MaDH, TTHAI);
