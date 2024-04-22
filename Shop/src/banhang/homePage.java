@@ -23,7 +23,7 @@ public class homePage extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         getValue();
-    }
+    }       
 
     /**
      * This method is called from within the constructor to initialize the form.

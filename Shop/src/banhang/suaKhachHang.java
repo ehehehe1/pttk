@@ -55,22 +55,42 @@ public class suaKhachHang extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SỬA KHÁCH HÀNG");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("MÃ KH:");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("TÊN ĐN:");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("MK:");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("EMAIL:");
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("SDT:");
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("DIACHI:");
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("TRANGTHAI:");
 
         jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
+        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton2.setText("LƯU");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +98,7 @@ public class suaKhachHang extends javax.swing.JDialog {
             }
         });
 
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chưa Duyệt!", "Đã Duyệt!" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -109,12 +130,12 @@ public class suaKhachHang extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(317, 317, 317)
                         .addComponent(jButton2)))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -146,7 +167,7 @@ public class suaKhachHang extends javax.swing.JDialog {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,7 +251,7 @@ public class suaKhachHang extends javax.swing.JDialog {
             TTHAI = 1;
         } else if ("Chưa Duyệt!".equals((String) selectedItem)) {
             TTHAI = 0;
-        }                  
+        }                     
         DSKH_sql sua = new DSKH_sql();
         if (isEmptyKH()) {
                     sua.update(khachHangId, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);

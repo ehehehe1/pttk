@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
   
 /**                                 
  *              
- * @author huynh                                            
+ * @author huynh                                                 
  */
 public class ctDonHang extends javax.swing.JDialog {
 
@@ -262,6 +262,7 @@ public class ctDonHang extends javax.swing.JDialog {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("CHI TIẾT ĐƠN HÀNG");
 
+        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

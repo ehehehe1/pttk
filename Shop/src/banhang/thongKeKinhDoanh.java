@@ -11,7 +11,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-/**                      
+/**                           
  *         
  * @author huynh
  */
@@ -142,6 +142,7 @@ public class thongKeKinhDoanh extends javax.swing.JInternalFrame {
                     .addContainerGap()))
         );
 
+        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -6,14 +6,14 @@ package banhang;
                          
 import java.awt.Color;           
 import java.beans.PropertyChangeEvent; 
-import java.beans.PropertyChangeListener;                         
+import java.beans.PropertyChangeListener;                            
 import javax.swing.JOptionPane;                     
 import javax.swing.plaf.basic.BasicInternalFrameUI;           
 import javax.swing.table.DefaultTableModel;
  
 public class danhSachKhachHang extends javax.swing.JInternalFrame {
    
-    DSKH_sql dsKhSql = new DSKH_sql();               
+    DSKH_sql dsKhSql = new DSKH_sql();                
     private DefaultTableModel model;
     suaKhachHang sua = new suaKhachHang(this, rootPaneCheckingEnabled);
     themKhachHang them = new themKhachHang(this, rootPaneCheckingEnabled);
@@ -176,6 +176,7 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -297,7 +298,7 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             dsKhSql.getKHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
         }
     }//GEN-LAST:event_jLabel3MouseClicked
- 
+  
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int rowCount = jTable1.getRowCount();
         int selectedIndex = jTable1.getSelectedRow();

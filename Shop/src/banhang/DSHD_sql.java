@@ -140,8 +140,8 @@ public class DSHD_sql {
         String sql = "SELECT * FROM DONHANG WHERE CONVERT(date, NGAYDH) BETWEEN ? AND ? AND TRANGTHAI=1;";
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, DateStart);
-            ps.setString(2, DateEnd);
+            ps.setString(1, DateStart);     
+            ps.setString(2, DateEnd);       
             ResultSet rs = ps.executeQuery();
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             Object[] row;

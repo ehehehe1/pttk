@@ -17,23 +17,25 @@ public class DSKH_sql {
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;
 
-    /*           
+            
     //get table max row
-    public int getMax() {     
-        int id = 0;
+    public String getMax() {     
+        String id=""; 
         Statement st;
         try {
             st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT MAX(id) FROM student");
+            ResultSet rs = st.executeQuery("SELECT MATK FROM TAIKHOAN ORDER BY CAST(SUBSTRING(MATK, 3, LEN(MATK) - 2) AS INT) DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;");
             while (rs.next()) {
-                id = rs.getInt(1);
+                String oldid = rs.getString(1);
+                int number = Integer.parseInt(oldid.substring(2)) + 1;
+                id = "TK" + String.format("%04d", number);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return id + 1;
+        return id;
     }
-     */
+     
     public KHACHHANG getKHid(String id) {
         String sql = "SELECT * FROM TAIKHOAN WHERE MATK = ? AND MAQ=3;";
         KHACHHANG khachHang = null;
@@ -169,7 +171,7 @@ public class DSKH_sql {
             ps.setString(1, TenDN);
             ps.setString(2, MK);
             ps.setString(3, EMAIL);
-            ps.setString(4, SDT);  
+            ps.setString(4, SDT);      
             ps.setString(5, DIACHI);
             ps.setInt(6, TTHAI);      
             ps.setString(7, khachHangId);

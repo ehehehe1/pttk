@@ -14,10 +14,12 @@ public class themKhachHang extends javax.swing.JDialog {
     /**
      * Creates new form themKhachHang
      */
+    DSKH_sql dsKhSql = new DSKH_sql();               
     public themKhachHang(javax.swing.JInternalFrame parent, boolean modal) {
         super((java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(parent), modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField1.setText(dsKhSql.getMax());
     }
 
     /**
@@ -53,20 +55,42 @@ public class themKhachHang extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("THÊM KHÁCH HÀNG");
 
-        jLabel2.setText("MÃ KH:");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setText("MÃ TK:");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("TÊN ĐN:");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("MK:");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("EMAIL:");
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("SDT:");
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("DIACHI:");
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("TRANGTHAI:");
 
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton2.setText("LƯU");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +98,7 @@ public class themKhachHang extends javax.swing.JDialog {
             }
         });
 
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chưa Duyệt!", "Đã Duyệt!" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -85,34 +110,33 @@ public class themKhachHang extends javax.swing.JDialog {
                 .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9))
+                        .addGap(222, 222, 222)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
                             .addComponent(jTextField4)
                             .addComponent(jTextField5)
                             .addComponent(jTextField6)
                             .addComponent(jTextField7)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(196, Short.MAX_VALUE))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(49, 49, 49)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -139,12 +163,12 @@ public class themKhachHang extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addGap(35, 35, 35)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,10 +191,6 @@ public class themKhachHang extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     public boolean isEmptyKH() {
-        if (jTextField1.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Mời nhập mã khách hàng");
-            return false;
-        }
         if (jTextField3.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập tên đăng nhập");
             return false;
@@ -217,7 +237,6 @@ public class themKhachHang extends javax.swing.JDialog {
     }
 
     private void clearKH() {
-        jTextField1.setText(null);
         jTextField3.setText(null);
         jTextField4.setText(null);
         jTextField5.setText(null);
@@ -241,13 +260,13 @@ public class themKhachHang extends javax.swing.JDialog {
         DSKH_sql them = new DSKH_sql();
 
         if (isEmptyKH()) {
-            if (!them.isIdExist(khachHangId)) {
                 if (!them.isEmailExists(EMAIL)) {
                     if (!them.isPhoneExists(Integer.parseInt(SDT))) {
 
                         them.insert(khachHangId, TenDN, MK, EMAIL, Integer.parseInt(SDT), DIACHI, TTHAI);
                         firePropertyChange("dataUpdated", false, true);
                         clearKH();
+                        jTextField1.setText(dsKhSql.getMax());
                         //this.dispose();
                     } else {
                         JOptionPane.showMessageDialog(this, "Số điện thoại đã tồn tại!");
@@ -257,12 +276,6 @@ public class themKhachHang extends javax.swing.JDialog {
                 } else {
                     JOptionPane.showMessageDialog(this, "Email đã tồn tại");
                 }
-
-            } else {
-
-                JOptionPane.showMessageDialog(this, "ID đã tồn tại");
-
-            }
         }
 
 

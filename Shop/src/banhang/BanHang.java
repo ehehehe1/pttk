@@ -14,7 +14,7 @@ public class BanHang extends javax.swing.JFrame {
     public BanHang() {             
         initComponents();       
     }             
-           
+             
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -376,7 +376,7 @@ public class BanHang extends javax.swing.JFrame {
         thongKeKinhDoanh f2=new thongKeKinhDoanh();  
         desktopPanelControl.add(f2).setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
-                                            
+                                                 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         desktopPanelControl.removeAll();
         danhSachDonHang f3=new danhSachDonHang();    
