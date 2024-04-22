@@ -42,6 +42,7 @@ create table LOAISP(
 create table SANPHAM(
 	MASP	varchar(10) primary key,
 	TENSP	nvarchar(255) NOT NULL,
+	HINHANH varchar(50),
 	MALOAI	varchar(10) foreign key references LOAISP(MALOAI),
 	SOLUONG int,			-- soluong tính tự động bằng tổng các số lượng sản phẩm của từng mã chi tiết sản phẩm
 	TRANGTHAI smallint NOT NULL
@@ -170,15 +171,15 @@ insert into SIZE(MASIZE, TENSIZE, TRANGTHAI) values
 insert into LOAISP(MALOAI, TENLOAI, TRANGTHAI) values
 ('01', 'Đầm', 1), ('02', 'Áo', 1), ('03', 'Quần', 1), ('04', 'Chân váy', 1), ('05', 'Đồ bộ', 1), ('06', 'Áo dài', 1);
 
-insert into SANPHAM(MASP, TENSP, MALOAI, SOLUONG, TRANGTHAI) values
-('S00001', 'Đầm tay phồng cổ trụ', '01', 140, 1), 
-('S00002', 'Đầm tay ngắn bèo viền ren', '01', 60, 1), 
-('S00003', 'Đầm tay ngắn giả túi thanh lịch', '01', 40, 1), 
-('S00004', 'Đầm tay ngắn cổ chữ U', '01', 40, 1), 
-('S00005', 'Đầm 2 dây nơ', '01', 80, 1),
-('S00006', 'Áo thun ngắn tay MESIYOU', '02', 40, 1),
-('S00007', 'Quần tây trơn xẻ tà bên sợi', '03', 40, 1), 
-('S00008', 'Chân váy ngắn xếp ly xòe', '04', 80, 1); 
+insert into SANPHAM(MASP, TENSP, HINHANH, MALOAI, SOLUONG, TRANGTHAI) values
+('S00001', 'Đầm tay phồng cổ trụ', 'S00001.jpg', '01', 140, 1), 
+('S00002', 'Đầm tay ngắn bèo viền ren', 'S00002.jpg', '01', 60, 1), 
+('S00003', 'Đầm tay ngắn giả túi thanh lịch', 'S00003.jpg', '01', 40, 1), 
+('S00004', 'Đầm tay ngắn cổ chữ U', 'S00004.jpg', '01', 40, 1), 
+('S00005', 'Đầm 2 dây nơ', 'S00005.jpg', '01', 80, 1),
+('S00006', 'Áo thun ngắn tay MESIYOU', 'S00006.jpg', '02', 40, 1),
+('S00007', 'Quần tây trơn xẻ tà bên sợi', 'S00007.jpg', '03', 40, 1), 
+('S00008', 'Chân váy ngắn xếp ly xòe', 'S00008.jpg', '04', 80, 1); 
 --('VDU00448', 'Đầm tay ngắn phối ren hoa kết đá', '', '01', 200000, 389000, 1), 
 --('ATU00733', 'Áo thun ngắn tay MESIYOU', '', '02', 100000, 279000, 1), 
 --('TAT00065', 'Áo thun ngắn tay YOU&ME', '', '02', 100000, 200000, 1), 
@@ -223,7 +224,6 @@ insert into CT_SANPHAM(MACTSP, MASP, MAMAU, MASIZE, SOLUONG, GIABAN, TRANGTHAI) 
 ('S000080102', 'S00008', '01', '02', 20, 300000, 1),
 ('S000080201', 'S00008', '02', '01', 20, 400000, 1),
 ('S000080202', 'S00008', '02', '02', 20, 200000, 1);
-
 
 
 
