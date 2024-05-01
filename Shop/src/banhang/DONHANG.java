@@ -55,11 +55,11 @@ public class DONHANG {
     public String getPTTT() {
         return PTTT;
     }
-
+        
     public void setPTTT(String PTTT) {
         this.PTTT = PTTT;
-    }
-                 
+    }     
+                   
     public String getNgayDH() {
         return ngayDH;
     }       

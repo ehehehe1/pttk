@@ -42,10 +42,10 @@ public class ctHoaDon extends javax.swing.JDialog {
         jTextField7.setText(String.valueOf(s.getTTien()));  
         jTextField8.setText(s.getPTTT());
         System.out.println(MADH);   
-        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
+        jTable1.setModel(new DefaultTableModel(null, new Object[]{"TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
         dsdh.getCTDH(jTable1, MADH);
     }  
-      
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -286,7 +286,7 @@ public class ctHoaDon extends javax.swing.JDialog {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"
+                "TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -386,7 +386,7 @@ public class ctHoaDon extends javax.swing.JDialog {
             }
         });
     }
-
+             
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

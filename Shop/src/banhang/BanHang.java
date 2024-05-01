@@ -13,8 +13,8 @@ public class BanHang extends javax.swing.JFrame {
      */  
     public BanHang() {             
         initComponents();       
-    }             
-             
+    }               
+                 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -376,7 +376,7 @@ public class BanHang extends javax.swing.JFrame {
         thongKeKinhDoanh f2=new thongKeKinhDoanh();  
         desktopPanelControl.add(f2).setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
-                                                 
+                                                    
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         desktopPanelControl.removeAll();
         danhSachDonHang f3=new danhSachDonHang();    
@@ -388,7 +388,7 @@ public class BanHang extends javax.swing.JFrame {
         homePage f4=new homePage();    
         desktopPanelControl.add(f4).setVisible(true); 
     }//GEN-LAST:event_jLabel7MouseClicked
-            
+               
     /**  
      * @param args the command line arguments
      */
@@ -396,7 +396,7 @@ public class BanHang extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new BanHang().setVisible(true);
-            }
+            }  
         });     
     }
 

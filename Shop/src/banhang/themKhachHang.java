@@ -195,7 +195,7 @@ public class themKhachHang extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Mời nhập tên đăng nhập");
             return false;
         }
-
+               
         if (jTextField4.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập mật khẩu");
             return false;

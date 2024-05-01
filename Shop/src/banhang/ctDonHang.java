@@ -14,8 +14,9 @@ public class ctDonHang extends javax.swing.JDialog {
 
     DSDH_sql dsdh= new DSDH_sql();
     String MADH=null;
-    public ctDonHang(javax.swing.JInternalFrame parent, boolean modal) {
+    public ctDonHang(javax.swing.JInternalFrame parent, boolean modal) {  
         super((java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(parent), modal);
+                           
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -39,10 +40,10 @@ public class ctDonHang extends javax.swing.JDialog {
             jTextField8.setText("Chưa Duyệt!");
         }
         System.out.println(MADH);   
-        jTable1.setModel(new DefaultTableModel(null, new Object[]{"SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
+        jTable1.setModel(new DefaultTableModel(null, new Object[]{"TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
         dsdh.getCTDH(jTable1, MADH);
     }  
-    
+      
     
 
     /**
@@ -271,7 +272,7 @@ public class ctDonHang extends javax.swing.JDialog {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"
+                "TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -369,7 +370,7 @@ public class ctDonHang extends javax.swing.JDialog {
             }
         });
     }
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

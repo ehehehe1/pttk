@@ -20,7 +20,7 @@ public class DSKH_sql {
             
     //get table max row
     public String getMax() {     
-        String id=""; 
+        String id="";                
         Statement st;
         try {
             st = con.createStatement();

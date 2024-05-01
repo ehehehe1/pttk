@@ -298,7 +298,7 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             dsKhSql.getKHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
         }
     }//GEN-LAST:event_jLabel3MouseClicked
-  
+                 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int rowCount = jTable1.getRowCount();
         int selectedIndex = jTable1.getSelectedRow();

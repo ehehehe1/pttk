@@ -5,6 +5,7 @@
 package banhang;
 
 import db.MyConnection;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author huynh
- */  
+ */
 public class DSDH_sql {
 
     Connection con = MyConnection.getConnection();
@@ -77,7 +79,7 @@ public class DSDH_sql {
         }
         return donhang;
     }
-         
+
     public void update(String donHangID, int TTHAI) {
         String sql1 = "update DONHANG set TRANGTHAI=? where MADH=?";
         String sql2 = "select * FROM CT_DONHANG where MADH=?";
@@ -155,7 +157,7 @@ public class DSDH_sql {
         String sql2 = "select * FROM CT_SANPHAM where MACTSP=?;";
         String sql3 = "select * FROM SIZE where MASIZE=?;";
         String sql4 = "select * FROM MAUSAC where MAMAU=?;";
-
+//        String sql5 = "select * FROM SANPHAM where MASP=?;";
         try {
             PreparedStatement ps1 = con.prepareStatement(sql1);
             ps1.setString(1, MADH);
@@ -192,8 +194,20 @@ public class DSDH_sql {
 
                 row[4] = rs1.getString(4);
                 row[5] = rs1.getString(5);
+
+//                PreparedStatement ps5 = con.prepareStatement(sql5);
+//                String MASP = rs2.getString(2);
+//                ps5.setString(1, MASP);
+//                ResultSet rs5 = ps5.executeQuery();
+//                if (rs5.next()) {
+//                    File currentDir = new File(System.getProperty("user.dir")); // Lấy đường dẫn thư mục hiện tại của ứng dụng
+//                    File imagePath = new File(currentDir, "src/img_sp/" + rs5.getString(3));
+//                    ImageIcon imageIcon = new ImageIcon(imagePath.getPath());
+//                    row[6] = imageIcon;
+//                }
                 model.insertRow(0, row);
             }
+//            table.getColumnModel().getColumn(6).setCellRenderer(new ImageRenderer());
         } catch (SQLException ex) {
             Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
