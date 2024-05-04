@@ -10,7 +10,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;                     
 import javax.swing.plaf.basic.BasicInternalFrameUI;           
 import javax.swing.table.DefaultTableModel;
-   
+     
 public class danhSachKhachHang extends javax.swing.JInternalFrame {
    
     DSKH_sql dsKhSql = new DSKH_sql();                
@@ -41,8 +41,8 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 if (evt.getNewValue().equals(true)) {
-                    jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
-                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
+                    jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ TÀI KHOẢN", "TÊN ĐĂNG NHẬP", "EMAIL",
+                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ", "Trạng Thái"}));
                     dsKhSql.getKHValue(jTable1, "");
                 }
             }
@@ -52,8 +52,8 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 if (evt.getNewValue().equals(true)) {
-                    jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
-                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
+                    jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ TÀI KHOẢN", "TÊN ĐĂNG NHẬP", "EMAIL",
+                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ", "Trạng Thái"}));
                     dsKhSql.getKHValue(jTable1, "");
                 }
             }
@@ -289,12 +289,12 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if (searchField.getText().isEmpty()) {
             //JOptionPane.showMessageDialog(this, "Search field is empty");
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
-                "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ TÀI KHOẢN", "TÊN ĐĂNG NHẬP", "EMAIL",
+                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ", "Trạng Thái"}));
             dsKhSql.getKHValue(jTable1, "");
         } else {
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
-                "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ TÀI KHOẢN", "TÊN ĐĂNG NHẬP", "EMAIL",
+                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ", "Trạng Thái"}));
             dsKhSql.getKHValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
         }
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -328,8 +328,8 @@ public class danhSachKhachHang extends javax.swing.JInternalFrame {
             Object value = jTable1.getValueAt(selectedIndex, 0);
             String Makh = (String) value;
             dsKhSql.delete(Makh);
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ KHÁCH HÀNG", "HỌ VÀ TÊN", "EMAIL", "TÀI KHOẢN",
-                "SỐ ĐIỆN THOẠI", "Đ/CHỈ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ TÀI KHOẢN", "TÊN ĐĂNG NHẬP", "EMAIL",
+                        "SỐ ĐIỆN THOẠI", "Đ/CHỈ", "Trạng Thái"}));
             dsKhSql.getKHValue(jTable1, "");
         }
     }//GEN-LAST:event_jButton3ActionPerformed

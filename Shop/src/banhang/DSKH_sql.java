@@ -17,7 +17,7 @@ public class DSKH_sql {
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;
 
-              
+               
     //get table max row
     public String getMax() {     
         String id="";                
@@ -29,8 +29,8 @@ public class DSKH_sql {
                 String oldid = rs.getString(1);
                 int number = Integer.parseInt(oldid.substring(2)) + 1;
                 id = "TK" + String.format("%04d", number);
-            }
-        } catch (SQLException ex) {
+            } 
+        } catch (SQLException ex) { 
             Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
@@ -70,7 +70,7 @@ public class DSKH_sql {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             Object[] row;
             while (rs.next()) {
-                row = new Object[6];
+                row = new Object[6];  
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);

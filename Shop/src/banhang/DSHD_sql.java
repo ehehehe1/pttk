@@ -138,7 +138,7 @@ public class DSHD_sql {
     public void getHDValueDate(JTable table, String DateStart, String DateEnd)
     {
         String sql = "SELECT * FROM DONHANG WHERE CONVERT(datetime, NGAYDH) BETWEEN ? AND ? AND TRANGTHAI=2;";
-        try {
+        try {   
             ps = con.prepareStatement(sql); 
             ps.setString(1, DateStart);     
             ps.setString(2, DateEnd);       

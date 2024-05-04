@@ -42,7 +42,7 @@ public class DSDH_sql {
             model.setRowCount(0);
             Object[] row;
             while (rs.next()) {
-                row = new Object[6]; 
+                row = new Object[6];     
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);

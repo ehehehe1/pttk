@@ -366,17 +366,17 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if (searchField.getText().isEmpty()) {
             //JOptionPane.showMessageDialog(this, "Search field is empty");
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY XỬ LÍ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "TỔNG GIÁ"}));
             dsHdSql.getHDValue(jTable1, "");
         } else {
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY XỬ LÍ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "TỔNG GIÁ"}));
             dsHdSql.getHDValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
             if (jTable1.getModel().getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");
             }
         }
     }//GEN-LAST:event_jLabel3MouseClicked
-
+  
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Date date1 = jDateChooser1.getDate();
         SimpleDateFormat outputFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -391,7 +391,7 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
             formattedDateEnd = outputFormat2.format(date2);
 //            System.out.println("Ngày bắt đầu: " + formattedDateStart);
 //            System.out.println("Ngày kết thúc: " + formattedDateEnd);
-            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ"}));
+            jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "TỔNG GIÁ"}));
             dsHdSql.getHDValueDate(jTable1, formattedDateStart, formattedDateEnd);
             if (jTable1.getModel().getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");

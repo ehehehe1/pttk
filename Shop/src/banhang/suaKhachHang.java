@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**  
  *                
- * @author huynh  
+ * @author huynh    
  */
 public class suaKhachHang extends javax.swing.JDialog {
 
@@ -318,7 +318,7 @@ public class suaKhachHang extends javax.swing.JDialog {
             }
         });
     }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
