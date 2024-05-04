@@ -13,7 +13,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 public class homePage extends javax.swing.JInternalFrame {
 
     HOMEPAGE_sql hp = new HOMEPAGE_sql();
-
+  
     /**
      * Creates new form homePage
      */

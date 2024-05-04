@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**  
  *                
- * @author huynh
+ * @author huynh  
  */
 public class suaKhachHang extends javax.swing.JDialog {
 

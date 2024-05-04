@@ -8,9 +8,9 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
-import java.util.Date; 
+import java.util.Date;
 import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;                  
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -372,32 +372,34 @@ public class danhSachHoaDon extends javax.swing.JInternalFrame {
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ", "NGÀY XỬ LÍ"}));
             dsHdSql.getHDValue(jTable1, searchField.getText()); //lọc theo giá trị gõ qua searchField
             if (jTable1.getModel().getRowCount() == 0) {
-                    JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");
-            }    
+                JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");
+            }
         }
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Date date1 = jDateChooser1.getDate();
-        SimpleDateFormat outputFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat outputFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formattedDateStart = null;
         Date date2 = jDateChooser2.getDate();
-        SimpleDateFormat outputFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat outputFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formattedDateEnd = null;
         if (date1 == null || date2 == null) {
             JOptionPane.showMessageDialog(null, "Xin mời nhập lại đầy đủ");
         } else {
             formattedDateStart = outputFormat1.format(date1);
             formattedDateEnd = outputFormat2.format(date2);
+//            System.out.println("Ngày bắt đầu: " + formattedDateStart);
+//            System.out.println("Ngày kết thúc: " + formattedDateEnd);
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"MÃ ĐƠN HÀNG", "MÃ KHÁCH HÀNG", "NGÀY ĐẶT HÀNG", "GIÁ"}));
             dsHdSql.getHDValueDate(jTable1, formattedDateStart, formattedDateEnd);
             if (jTable1.getModel().getRowCount() == 0) {
-                    JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");
+                JOptionPane.showMessageDialog(null, "Không có kết quả phù hợp!");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
- 
-                    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;

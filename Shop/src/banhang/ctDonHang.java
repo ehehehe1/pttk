@@ -43,8 +43,8 @@ public class ctDonHang extends javax.swing.JDialog {
         jTable1.setModel(new DefaultTableModel(null, new Object[]{"TÊN SẢN PHẨM", "MÃ SẢN PHẨM", "SIZE", "MÀU", "SỐ LƯỢNG", "ĐƠN GIÁ"}));
         dsdh.getCTDH(jTable1, MADH);
     }  
-      
-    
+         
+     
 
     /**
      * This method is called from within the constructor to initialize the form.

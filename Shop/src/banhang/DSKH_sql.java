@@ -17,7 +17,7 @@ public class DSKH_sql {
     Connection con = MyConnection.getConnection();
     PreparedStatement ps;
 
-            
+              
     //get table max row
     public String getMax() {     
         String id="";                

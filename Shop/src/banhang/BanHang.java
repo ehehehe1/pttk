@@ -2,7 +2,7 @@ package banhang;
 
 import java.awt.Color; 
   
-/**   
+/**     
  *  
  * @author PC
  */

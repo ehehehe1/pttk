@@ -42,7 +42,7 @@ public class DSDH_sql {
             model.setRowCount(0);
             Object[] row;
             while (rs.next()) {
-                row = new Object[6];
+                row = new Object[6]; 
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(5);
@@ -194,17 +194,6 @@ public class DSDH_sql {
 
                 row[4] = rs1.getString(4);
                 row[5] = rs1.getString(5);
-
-//                PreparedStatement ps5 = con.prepareStatement(sql5);
-//                String MASP = rs2.getString(2);
-//                ps5.setString(1, MASP);
-//                ResultSet rs5 = ps5.executeQuery();
-//                if (rs5.next()) {
-//                    File currentDir = new File(System.getProperty("user.dir")); // Lấy đường dẫn thư mục hiện tại của ứng dụng
-//                    File imagePath = new File(currentDir, "src/img_sp/" + rs5.getString(3));
-//                    ImageIcon imageIcon = new ImageIcon(imagePath.getPath());
-//                    row[6] = imageIcon;
-//                }
                 model.insertRow(0, row);
             }
 //            table.getColumnModel().getColumn(6).setCellRenderer(new ImageRenderer());

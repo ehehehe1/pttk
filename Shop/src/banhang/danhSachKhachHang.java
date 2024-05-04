@@ -10,7 +10,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;                     
 import javax.swing.plaf.basic.BasicInternalFrameUI;           
 import javax.swing.table.DefaultTableModel;
- 
+   
 public class danhSachKhachHang extends javax.swing.JInternalFrame {
    
     DSKH_sql dsKhSql = new DSKH_sql();                
