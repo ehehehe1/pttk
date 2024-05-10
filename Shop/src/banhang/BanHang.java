@@ -7,11 +7,11 @@ import java.awt.Color;
  * @author PC
  */
 public class BanHang extends javax.swing.JFrame {
-
+   
     /**   
      * Creates new form BanHang 
      */  
-    public BanHang() {             
+    public BanHang() {              
         initComponents();       
     }               
                  
@@ -364,7 +364,7 @@ public class BanHang extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
-                
+                 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         desktopPanelControl.removeAll();
         danhSachKhachHang f1=new danhSachKhachHang();        
@@ -391,7 +391,7 @@ public class BanHang extends javax.swing.JFrame {
                
     /**  
      * @param args the command line arguments
-     */
+     */ 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

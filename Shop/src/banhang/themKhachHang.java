@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
  * @author huynh                 
  */
 public class themKhachHang extends javax.swing.JDialog {
-      
+            
     /**
      * Creates new form themKhachHang
      */

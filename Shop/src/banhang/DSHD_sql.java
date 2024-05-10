@@ -138,7 +138,7 @@ public class DSHD_sql {
     public void getHDValueDate(JTable table, String DateStart, String DateEnd)
     {
         String sql = "SELECT * FROM DONHANG WHERE CONVERT(datetime, NGAYDH) BETWEEN ? AND ? AND TRANGTHAI=2;";
-        try {   
+        try {     
             ps = con.prepareStatement(sql); 
             ps.setString(1, DateStart);     
             ps.setString(2, DateEnd);       
@@ -158,4 +158,53 @@ public class DSHD_sql {
         }
     }
 
+     public void giaCao(JTable table){
+        String sql = "SELECT * FROM DONHANG WHERE TRANGTHAI =? ORDER BY TONGTIEN ASC;";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 2);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+            Object[] row;
+            while (rs.next()) {
+                row = new Object[6];       
+                row[0] = rs.getString(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(5);
+                row[3] = rs.getInt(3); 
+                row[4] = rs.getString(4);
+                row[5] = rs.getInt(6) == 2;
+
+                model.insertRow(0, row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void giaThap(JTable table){
+        String sql = "SELECT * FROM DONHANG WHERE TRANGTHAI =? ORDER BY TONGTIEN DESC;";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 2);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+            Object[] row;
+            while (rs.next()) {
+                row = new Object[6];       
+                row[0] = rs.getString(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(5);
+                row[3] = rs.getInt(3);
+                row[4] = rs.getString(4);
+                row[5] = rs.getInt(6) == 2;
+
+                model.insertRow(0, row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DSDH_sql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

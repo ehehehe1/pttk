@@ -317,8 +317,8 @@ public class suaKhachHang extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
-    }
-  
+    }     
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
