@@ -10,7 +10,7 @@ package banhang;
  */                                                                
 public class KHACHHANG { 
 
-    private String id;                    
+    private String id;                          
     //private String hoTen;
     private String TenDN;
     private String MK;

@@ -357,7 +357,7 @@ public class BanHang extends javax.swing.JFrame {
   
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         desktopPanelControl.removeAll();
-        danhSachHoaDon f1=new danhSachHoaDon();        
+        danhSachHoaDon f1=new danhSachHoaDon();              
         desktopPanelControl.add(f1).setVisible(true);   
     }//GEN-LAST:event_jLabel8MouseClicked
 

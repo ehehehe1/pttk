@@ -4,11 +4,11 @@
  */
 package banhang;
  
-/**      
- *       
+/**         
+ *         
  * @author huynh            
  */                         
-public class DONHANG {      
+public class DONHANG {       
       
     private String idDH; 
     private String idKH;    

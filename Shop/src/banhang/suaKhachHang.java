@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package banhang;
- 
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**  
- *                
- * @author huynh    
+/**
+ *
+ * @author huynh
  */
 public class suaKhachHang extends javax.swing.JDialog {
 
@@ -204,6 +204,15 @@ public class suaKhachHang extends javax.swing.JDialog {
             return false;
         }
 
+        if (!jTextField4.getText().matches(".{8,}")) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu phải từ 8 kí tự trở lên");
+            return false;
+        }
+
+        if (!jTextField4.getText().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$")) {
+            JOptionPane.showMessageDialog(this, "Phải có ít nhất 1 kí tự đặc biệt (#,@,..), 1 chữ cái thường, 1 chữ cái hoa và 1 số");
+            return false;
+        } 
         if (jTextField5.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập Email");
             return false;
@@ -251,12 +260,12 @@ public class suaKhachHang extends javax.swing.JDialog {
             TTHAI = 1;
         } else if ("Chưa Duyệt!".equals((String) selectedItem)) {
             TTHAI = 0;
-        }                                    
+        }
         DSKH_sql sua = new DSKH_sql();
         if (isEmptyKH()) {
-                    sua.update(khachHangId, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
-                    firePropertyChange("dataUpdated", false, true);
-                    //this.dispose();                
+            sua.update(khachHangId, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
+            firePropertyChange("dataUpdated", false, true);
+            //this.dispose();                
         }
 //        sua.update(khachHangId, hoTen, TenDN, MK, EMAIL, SDT, DIACHI, TTHAI);
 //        firePropertyChange("dataUpdated", false, true);
@@ -317,8 +326,8 @@ public class suaKhachHang extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
-    }     
-   
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;

@@ -5,16 +5,17 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/** 
- * 
- * @author huynh                 
+/**
+ *
+ * @author huynh
  */
 public class themKhachHang extends javax.swing.JDialog {
-            
+
     /**
      * Creates new form themKhachHang
      */
-    DSKH_sql dsKhSql = new DSKH_sql();               
+    DSKH_sql dsKhSql = new DSKH_sql();
+
     public themKhachHang(javax.swing.JInternalFrame parent, boolean modal) {
         super((java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(parent), modal);
         initComponents();
@@ -195,11 +196,20 @@ public class themKhachHang extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Mời nhập tên đăng nhập");
             return false;
         }
-               
+
         if (jTextField4.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập mật khẩu");
             return false;
         }
+        if (!jTextField4.getText().matches(".{8,}")) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu phải từ 8 kí tự trở lên");
+            return false;
+        }
+
+        if (!jTextField4.getText().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$")) {
+            JOptionPane.showMessageDialog(this, "Phải có ít nhất 1 kí tự đặc biệt (#,@,..), 1 chữ cái thường, 1 chữ cái hoa và 1 số");
+            return false;
+        } 
 
         if (jTextField5.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Mời nhập Email");
@@ -216,7 +226,7 @@ public class themKhachHang extends javax.swing.JDialog {
         if (jTextField6.getText().length() > 11) {
             JOptionPane.showMessageDialog(this, "Số điện thoại quá dài");
             return false;
-        }            
+        }
         String input = jTextField6.getText();
         boolean containsOnlyDigits = true;
         for (char c : input.toCharArray()) {
@@ -242,7 +252,7 @@ public class themKhachHang extends javax.swing.JDialog {
         jTextField5.setText(null);
         jTextField6.setText(null);
         jTextField7.setText(null);
-    }                   
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String khachHangId = jTextField1.getText();
         String TenDN = jTextField3.getText();
@@ -260,22 +270,22 @@ public class themKhachHang extends javax.swing.JDialog {
         DSKH_sql them = new DSKH_sql();
 
         if (isEmptyKH()) {
-                if (!them.isEmailExists(EMAIL)) {
-                    if (!them.isPhoneExists(Integer.parseInt(SDT))) {
+            if (!them.isEmailExists(EMAIL)) {
+                if (!them.isPhoneExists(Integer.parseInt(SDT))) {
 
-                        them.insert(khachHangId, TenDN, MK, EMAIL, Integer.parseInt(SDT), DIACHI, TTHAI);
-                        firePropertyChange("dataUpdated", false, true);
-                        clearKH();
-                        jTextField1.setText(dsKhSql.getMax());
-                        //this.dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Số điện thoại đã tồn tại!");
-
-                    }
-
+                    them.insert(khachHangId, TenDN, MK, EMAIL, Integer.parseInt(SDT), DIACHI, TTHAI);
+                    firePropertyChange("dataUpdated", false, true);
+                    clearKH();
+                    jTextField1.setText(dsKhSql.getMax());
+                    //this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(this, "Email đã tồn tại");
+                    JOptionPane.showMessageDialog(this, "Số điện thoại đã tồn tại!");
+
                 }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Email đã tồn tại");
+            }
         }
 
 

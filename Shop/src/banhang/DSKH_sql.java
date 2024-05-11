@@ -32,7 +32,7 @@ public class DSKH_sql {
             } 
         } catch (SQLException ex) { 
             Logger.getLogger(DSKH_sql.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }      
         return id;
     }
      
