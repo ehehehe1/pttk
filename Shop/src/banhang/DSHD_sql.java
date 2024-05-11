@@ -170,7 +170,7 @@ public class DSHD_sql {
             while (rs.next()) {
                 row = new Object[6];       
                 row[0] = rs.getString(1);
-                row[1] = rs.getString(2);
+                row[1] = rs.getString(2); 
                 row[2] = rs.getString(5);
                 row[3] = rs.getInt(3); 
                 row[4] = rs.getString(4);

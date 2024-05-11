@@ -77,7 +77,7 @@ public class DSKH_sql {
                 row[3] = rs.getString(4);
                 row[4] = rs.getString(6);
                 if (rs.getInt(8) == 1) {
-                    row[5] = "Đã Duyệt";
+                    row[5] = "Đã Duyệt"; 
                 } else {
                     row[5] = "Chưa Duyệt";
                 }

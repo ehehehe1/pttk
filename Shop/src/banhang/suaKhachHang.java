@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package banhang;
-
+ 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
