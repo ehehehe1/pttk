@@ -3,7 +3,6 @@ package giaoDien;
 import DAO.TaiKhoanDAO;
 import MODELS.TaiKhoan;
 import helper.MsgBox;
-import banhang.BanHang;
 import helper.Auth;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
@@ -218,11 +217,6 @@ public class JFrmLogin extends javax.swing.JDialog {
                 MsgBox.alert(this, "Sai Mật Khẩu");
             } else {
                 Auth.user = tk;
-                if(tk.getVaiTro()==2){
-                    BanHang bh=new BanHang();
-                    bh.setVisible(true);
-                    bh.pack();
-                }
                 this.dispose();
             }
         } catch (Exception e) {
