@@ -8,6 +8,7 @@ import helper.Auth;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import muaHang.TrangChu;
+import quanLiKho.GUI.ThuocTinhGUI;
 
 public class JFrmLogin extends javax.swing.JDialog {
 
@@ -227,6 +228,9 @@ public class JFrmLogin extends javax.swing.JDialog {
                     TrangChu home=new TrangChu(tk.getIdTaiKhoan());
                     home.setVisible(true);
                     home.pack();
+                } else if (tk.getVaiTro() == 1) {
+                    ThuocTinhGUI home1=new ThuocTinhGUI(tk.getEmail());
+                    home1.setVisible(true);
                 }
                 this.dispose();
             }
