@@ -2,10 +2,12 @@ package giaoDien;
 
 import DAO.TaiKhoanDAO;
 import MODELS.TaiKhoan;
+import banhang.BanHang;
 import helper.MsgBox;
 import helper.Auth;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import muaHang.TrangChu;
 
 public class JFrmLogin extends javax.swing.JDialog {
 
@@ -217,6 +219,15 @@ public class JFrmLogin extends javax.swing.JDialog {
                 MsgBox.alert(this, "Sai Mật Khẩu");
             } else {
                 Auth.user = tk;
+                 if (tk.getVaiTro() == 2) {
+                    BanHang bh = new BanHang();
+                    bh.setVisible(true);
+                    bh.pack();
+                } else if (tk.getVaiTro() == 3) {
+                    TrangChu home=new TrangChu(tk.getIdTaiKhoan());
+                    home.setVisible(true);
+                    home.pack();
+                }
                 this.dispose();
             }
         } catch (Exception e) {

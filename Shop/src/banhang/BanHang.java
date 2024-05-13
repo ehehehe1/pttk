@@ -1,5 +1,6 @@
 package banhang;
 
+import giaoDien.JFrmLogin;
 import java.awt.Color; 
   
 /**         
@@ -362,7 +363,10 @@ public class BanHang extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
+        JFrmLogin loginFrame = new JFrmLogin(this, true);
+        this.dispose();
+        loginFrame.setVisible(true);
+        loginFrame.pack();
     }//GEN-LAST:event_jLabel2MouseClicked
                  
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
