@@ -22,4 +22,13 @@ public class MyConnection {
             }
         return con;
     }
+
+    public static void closeConnection(Connection c) {
+                try {
+            if(c != null) 
+                c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
